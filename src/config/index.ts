@@ -25,17 +25,18 @@ export const SITE_CONTENT: SiteContent = {
   hero: {
     name: "Jorge Alvarez",
     specialty: "Full Stack Developer",
+    email:"jorgealvarezpb7@icloud.com",
     summary:
       "Enthusiastic about web page design and development and software that improves system usability and integrates business processes."
   },
   experience: [
     { 
       company: "MELIT",
-      position: "JHipset Developer",
+      position: "JHipster Developer",
       startDate: "March 2025",
       endDate: "June 2025",
       summary: [
-        "During my business internship, I received training in JHipster, a tool that combines Spring Boot and Angular for full-stack web application development.",
+        "During my business internship, i received training in JHipster, a tool that combines Spring Boot and Angular for full-stack web application development.",
         "Participated in the development of a car rental application, focused on vehicle and user management.",
         "Subsequently integrated into a CRM project to capture and sell real estate properties."
       ],
