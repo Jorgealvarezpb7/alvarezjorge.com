@@ -9,7 +9,7 @@ export const SITE_CONFIG: SiteConfig = {
   description:
     "Full Stack developer based in Madrid, Spain. I specialize in multiplatform app design and web and development and maintenance.",
   lang: "en",
-  siteLogo: "/concho.png",
+  siteLogo: "/profilepic.png",
   navLinks: [
     { text: "Experience", href: "#experience" },
     { text: "Projects", href: "#projects" },
@@ -48,7 +48,6 @@ export const SITE_CONTENT: SiteContent = {
     {
       name: "CRM Puntos y Descuentos",
       summary: "Loyalty management application that allows companies to manage customer points and convert them into discounts. Includes customer, inventory and sales modules, with an intuitive interface.",
-      linkPreview: "/",
       linkSource: "https://github.com/Jorgealvarezpb7/Client-Rewards",
       image: crmImage.src,
       technologies: ["Java", "JavaFX", "SQLite"]
@@ -56,7 +55,6 @@ export const SITE_CONTENT: SiteContent = {
     {
       name: "Rent A Car",
       summary: "Vehicle rental web application that allows customers to search for cars by categories and specific characteristics through advanced filters. Includes online reservation system and secure payment processing.",
-      linkPreview: "/",
       linkSource: "https://github.com/Jorgealvarezpb7/RentACar",
       image: rentACarImage.src,
       technologies: ["JHipster", "Angular", "Spring Boot"]
@@ -66,10 +64,10 @@ export const SITE_CONTENT: SiteContent = {
     description: `
       Hi, I'm Jorge Álvarez, a passionate Junior Full Stack Developer based in Madrid, Spain. I specialize in multiplatform app design and web development and maintenance.
 
-      I'm enthusiastic about designing and developing web pages and software that improve system usability and integrate business processes. Currently pursuing my education in web application development and multiplatform application development at UNIVERSAE.
+      I'm enthusiastic about designing and developing web pages and software that improve system usability and integrate business processes. Currently pursuing my education in web application development (already have a degree in multiplatform application development) at UNIVERSAE.
 
-      My experience includes working with technologies like Java, JavaScript/TypeScript, Angular, and Spring Boot. I'm always eager to learn new technologies and contribute to meaningful projects.
+      My experience includes working with technologies like Java, JavaScript/TypeScript, Angular, React, Lit and Spring Boot. I'm always eager to learn new technologies and contribute to meaningful projects.
     `,
-    image: "/concho.png",
+    image: "/profilepic.png",
   },
 };
