@@ -1,5 +1,8 @@
 import type { SiteConfig, SiteContent } from "../types";
 
+import crmImage from '../images/crm-project.png';
+import rentACarImage from '../images/rent-a-car.png';
+
 export const SITE_CONFIG: SiteConfig = {
   title: "Jorge Alvarez - Full Stack Developer",
   author: "Jorge Alvarez",
@@ -13,8 +16,7 @@ export const SITE_CONFIG: SiteConfig = {
     { text: "About", href: "#about" },
   ],
   socialLinks: [
-    { text: "Twitter", href: "https://github.com/jorgealvarezpb7" },
-    { text: "LinkedIn", href: "https://github.com/jorgealvarezpb7" },
+    { text: "LinkedIn", href: "https://linkedin.com/in/jorgealvarezpb7/" },
     { text: "Github", href: "https://github.com/jorgealvarezpb7" },
   ],
   socialImage: "/zen-og.png",
@@ -32,7 +34,7 @@ export const SITE_CONTENT: SiteContent = {
   experience: [
     { 
       company: "MELIT",
-      position: "JHipster Developer",
+      position: "Full Stack Developer",
       startDate: "March 2025",
       endDate: "June 2025",
       summary: [
@@ -48,7 +50,7 @@ export const SITE_CONTENT: SiteContent = {
       summary: "Loyalty management application that allows companies to manage customer points and convert them into discounts. Includes customer, inventory and sales modules, with an intuitive interface.",
       linkPreview: "/",
       linkSource: "https://github.com/Jorgealvarezpb7/Client-Rewards",
-      image: "/crm-project.png",
+      image: crmImage.src,
       technologies: ["Java", "JavaFX", "SQLite"]
     },
     {
@@ -56,7 +58,7 @@ export const SITE_CONTENT: SiteContent = {
       summary: "Vehicle rental web application that allows customers to search for cars by categories and specific characteristics through advanced filters. Includes online reservation system and secure payment processing.",
       linkPreview: "/",
       linkSource: "https://github.com/Jorgealvarezpb7/RentACar",
-      image: "/rentacar-project.png",
+      image: rentACarImage.src,
       technologies: ["JHipster", "Angular", "Spring Boot"]
     },
   ],
@@ -71,5 +73,3 @@ export const SITE_CONTENT: SiteContent = {
     image: "/concho.png",
   },
 };
-
-// #5755ff
