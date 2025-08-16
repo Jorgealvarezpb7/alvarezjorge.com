@@ -2,8 +2,13 @@
 import Header from "@components/Header.astro";
 import "@fontsource/be-vietnam-pro";
 import "@fontsource-variable/gabarito";
-import { SITE_CONFIG } from "@config";
+import { SITE_CONFIG, getSiteConfig } from "@config";
+import { getLanguageFromUrl } from "../i18n";
 import Footer from "@components/Footer.astro";
+
+const currentLang = getLanguageFromUrl(Astro.url);
+
+const siteConfig = getSiteConfig(currentLang);
 
 const {
   title,
@@ -15,7 +20,7 @@ const {
   socialLinks,
   socialImage,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
-} = SITE_CONFIG;
+} = siteConfig;
 
 const ogImgUrl = canonicalURL + socialImage;
 ---

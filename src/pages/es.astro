@@ -8,12 +8,12 @@ import About from "@components/About.astro";
 
 import "../styles/global.css";
 
-const SITE_CONTENT_EN = getSiteContent('en');
+const SITE_CONTENT_ES = getSiteContent('es');
 ---
 
-<Layout>
-  <Hero {...SITE_CONTENT_EN.hero} />
-  <Experience experience={SITE_CONTENT_EN.experience} />
-  <Projects projects={SITE_CONTENT_EN.projects} />
-  <About {...SITE_CONTENT_EN.about} name={SITE_CONTENT_EN.hero.name} />
+<Layout lang="es">
+  <Hero {...SITE_CONTENT_ES.hero} />
+  <Experience experience={SITE_CONTENT_ES.experience} />
+  <Projects projects={SITE_CONTENT_ES.projects} />
+  <About {...SITE_CONTENT_ES.about} name={SITE_CONTENT_ES.hero.name} />
 </Layout>

@@ -1,15 +1,18 @@
 ---
 import Menu from "@icons/Menu.astro";
 import { Image } from "astro:assets";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import { getLanguageFromUrl } from "../i18n";
 import type { HeaderProps } from "@types";
 
 type Props = HeaderProps;
 
 const { siteLogo, navLinks } = Astro.props;
+const currentLang = getLanguageFromUrl(Astro.url);
 ---
 
 <header
-  class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between bg-black px-5 py-6"
+  class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between items-center bg-black px-5 py-6"
 >
   <a href="/" aria-label="Home link">
     <Image
@@ -35,7 +38,7 @@ const { siteLogo, navLinks } = Astro.props;
     class="absolute top-20 right-5 hidden rounded-xl border border-neutral/40 bg-black px-4 py-5 text-neutral sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
     id="main-menu"
   >
-    <ul class="gap-2 sm:flex">
+    <ul class="gap-2 sm:flex sm:items-center">
       {
         navLinks.map((link) => (
           <li class="relative">
@@ -48,6 +51,9 @@ const { siteLogo, navLinks } = Astro.props;
           </li>
         ))
       }
+      <li class="mt-4 pt-4 border-t border-neutral/20 sm:mt-0 sm:pt-0 sm:border-t-0 sm:ml-4">
+        <LanguageSwitcher currentLang={currentLang} />
+      </li>
     </ul>
   </nav>
 </header>
