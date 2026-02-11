@@ -22,6 +22,7 @@ export const SITE_CONFIG: SiteConfig = {
   ],
   socialImage: "/zen-og.png",
   canonicalURL: "https://astro-zen.vercel.app",
+  techStackTitle: "Tech Stack",
 };
 
 export function getSiteContent(lang: Language): SiteContent {
@@ -38,7 +39,7 @@ export function getSiteContent(lang: Language): SiteContent {
       { 
         company: t.experience.melit.company,
         position: t.experience.melit.position,
-        startDate: lang === 'es' ? "Marzo 2025" : "March 2025",
+        startDate: lang === 'es' ? "Enero 2025" : "March 2025",
         endDate: lang === 'es' ? "Junio 2025" : "June 2025",
         summary: [...t.experience.melit.summary],
       },
@@ -63,14 +64,13 @@ export function getSiteContent(lang: Language): SiteContent {
       description: lang === 'es' ? `
         Hola, soy Jorge Álvarez, un apasionado Desarrollador Full Stack Junior con base en Madrid, España. Me especializo en el diseño de aplicaciones multiplataforma y desarrollo y mantenimiento web.
 
-        Soy entusiasta del diseño y desarrollo de páginas web y software que mejoren la usabilidad del sistema e integren procesos comerciales. Actualmente cursando mis estudios en desarrollo de aplicaciones web (ya tengo un título en desarrollo de aplicaciones multiplataforma) en UNIVERSAE.
+        Soy entusiasta del diseño y desarrollo de páginas web y software que mejoren la usabilidad del sistema e integren procesos comerciales.
 
         Mi experiencia incluye trabajar con tecnologías como Java, JavaScript/TypeScript, Angular, React, Lit y Spring Boot. Siempre estoy ansioso por aprender nuevas tecnologías y contribuir a proyectos significativos.
       ` : `
         Hi, I'm Jorge Álvarez, a passionate Junior Full Stack Developer based in Madrid, Spain. I specialize in multiplatform app design and web development and maintenance.
 
-        I'm enthusiastic about designing and developing web pages and software that improve system usability and integrate business processes. Currently pursuing my education in web application development (already have a degree in multiplatform application development) at UNIVERSAE.
-
+        I'm enthusiastic about designing and developing web pages and software that improve system usability and integrate business processes.
         My experience includes working with technologies like Java, JavaScript/TypeScript, Angular, React, Lit and Spring Boot. I'm always eager to learn new technologies and contribute to meaningful projects.
       `,
       image: "/profilepic.png",
@@ -98,6 +98,7 @@ export function getSiteConfig(lang: Language): SiteConfig {
     ],
     socialImage: "/zen-og.png",
     canonicalURL: "https://astro-zen.vercel.app",
+    techStackTitle: t.nav.techStack,  
   };
 }
 

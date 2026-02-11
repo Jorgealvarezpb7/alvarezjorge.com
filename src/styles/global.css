@@ -1,5 +1,41 @@
 @import "tailwindcss";
 
+.carousel-track {
+  animation: scroll-smooth 10s linear infinite;
+  will-change: transform;
+}
+
+
+.carousel-wrapper:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-smooth {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.tech-logo {
+  min-width: 100px;
+}
+
+@media (max-width: 768px) {
+  .tech-logo {
+    min-width: 80px;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    animation: none;
+  }
+}
+
 @theme {
   --font-sans: "Be Vietnam Pro", system-ui, sans-serif;
   --font-serif: "Gabarito Variable", ui-serif, serif;

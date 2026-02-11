@@ -7,7 +7,9 @@ import Projects from "@components/Projects.astro";
 import About from "@components/About.astro";
 
 import "../styles/global.css";
+import TechStack from "@components/TechStack.astro";
 
+const lang = 'es'; 
 const SITE_CONTENT_ES = getSiteContent('es');
 ---
 
@@ -15,5 +17,6 @@ const SITE_CONTENT_ES = getSiteContent('es');
   <Hero {...SITE_CONTENT_ES.hero} />
   <Experience experience={SITE_CONTENT_ES.experience} />
   <Projects projects={SITE_CONTENT_ES.projects} />
+  <TechStack lang={lang} />
   <About {...SITE_CONTENT_ES.about} name={SITE_CONTENT_ES.hero.name} />
 </Layout>

@@ -13,6 +13,7 @@ export const translations = {
       experience: "Experience",
       projects: "Projects",
       about: "About",
+      techStack: "Tech Stack",
     },
     // Hero section
     hero: {
@@ -48,6 +49,10 @@ export const translations = {
         preview: "Preview"
       }
     },
+    // Tech Stack section
+    techStack: {
+      title: "Tech Stack"
+    },
     // About section
     about: {
       title: "About",
@@ -69,6 +74,7 @@ I'm enthusiastic about designing and developing web pages and software that impr
       experience: "Experiencia",
       projects: "Proyectos",
       about: "Sobre mí",
+      techStack: "Stack Tecnológico",
     },
     // Hero section
     hero: {
@@ -103,6 +109,10 @@ I'm enthusiastic about designing and developing web pages and software that impr
         source: "Código",
         preview: "Vista previa"
       }
+    },
+    // Tech Stack section
+    techStack: {
+      title: "Stack Tecnológico"
     },
     // About section
     about: {

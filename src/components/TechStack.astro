@@ -1,0 +1,113 @@
+---
+import Section from "./Section.astro";
+import type { Language } from "../i18n";
+import { getSiteConfig } from "../config";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const siteConfig = getSiteConfig(lang);
+
+const technologies = [
+  {
+    name: "Spring Boot",
+    icon: "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/spring-boot-colored.svg"
+  },
+  {
+    name: "Git",
+    icon: "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/git-colored.svg"
+  },
+  {
+    name: "Java",
+    icon: "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/java-colored.svg"
+  },
+  {
+    name: "JavaScript",
+    icon: "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg"
+  },
+  {
+    name: "TypeScript",
+    icon: "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/typescript-colored.svg"
+  },
+  {
+    name: "HTML5",
+    icon: "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg"
+  },
+  {
+    name: "React",
+    icon: "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/react-colored.svg"
+  },
+  {
+    name: "Sass",
+    icon: "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/sass-colored.svg"
+  },
+  {
+    name: "CSS3",
+    icon: "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg"
+  },
+  {
+    name: "Angular",
+    icon: "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/angularjs-colored.svg"
+  },
+  {
+    name: "TailwindCSS",
+    icon: "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/tailwindcss-colored.svg"
+  },
+  {
+    name: "MySQL",
+    icon: "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mysql-colored.svg"
+  },
+  {
+    name: "Docker",
+    icon: "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/docker-colored.svg"
+  }
+];
+---
+
+<Section text={siteConfig.techStackTitle} href="tech-stack">
+  <div class="sticky mb-12 rounded-2xl border border-neutral/20 bg-black" style="top: 98px;">
+    <div class="bg-difu relative z-[1] w-full rounded-2xl bg-[#1c232d]/85 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-[''] py-12">
+      <div class="relative overflow-hidden">
+        
+        <div class="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#1c232d] to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#1c232d] to-transparent z-10 pointer-events-none"></div>
+        
+        
+        <div class="carousel-wrapper">
+          <div class="carousel-track flex gap-8 md:gap-12 items-center px-4">
+        
+            {technologies.map((tech) => (
+              <div class="tech-logo flex-shrink-0 group cursor-pointer">
+                <div class="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
+                  <img 
+                    src={tech.icon} 
+                    alt={tech.name}
+                    title={tech.name}
+                    class="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            ))}
+            
+            {technologies.map((tech) => (
+              <div class="tech-logo flex-shrink-0 group cursor-pointer">
+                <div class="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
+                  <img 
+                    src={tech.icon} 
+                    alt={tech.name}
+                    title={tech.name}
+                    class="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>
