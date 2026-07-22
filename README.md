@@ -1,35 +1,42 @@
-# AstroZen - Personal Portfolio Website
+# sv
 
-AstroZen is a minimalist, accessible and responsive portfolio template for your personal portfolio website. It is built with Astro and TailwindCSS.
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-![zen-og](https://github.com/user-attachments/assets/7a72aaae-6652-4cd0-becc-8e6a3c224993)
+## Creating a project
 
-> [!NOTE]
-> The information contained in this template, including names, images, and content, is entirely fictitious and is intended solely to give the design a realistic appearance. Any coincidence with real-life people, events, or situations is purely coincidental. It is recommended that you replace this information with your own information.
+If you're seeing this, you've probably already done this step. Congrats!
 
-## 🔥 Features
-
-- [x] Minimalist design. clean and simple
-- [x] Mobile-first responsive layout
-- [x] SEO-friendly and accessible
-- [x] Easy to customize with a single configuration file
-
-## ✅ Lighthouse Score
-
-![performance](https://github.com/user-attachments/assets/4f95e2ca-03f9-4996-9e34-dcd179194c58)
-
-## 🚀 Getting Started
-
-Clone this repository to your local machine using Git.
-
-```scheme
-git clone https://github.com/immois/astro-zen.git
-cd astro-zen
+```sh
+# create a new project
+npx sv create my-app
 ```
 
-| Command        | Action                                       |
-| :------------- | :------------------------------------------- |
-| `pnpm install` | Installs dependencies                        |
-| `pnpm dev`     | Starts local dev server at `localhost:4321`  |
-| `pnpm build`   | Build your production site to `./dist/`      |
-| `pnpm preview` | Preview your build locally, before deploying |
+To recreate this project with the same configuration:
+
+```sh
+# recreate this project
+bun x sv@0.16.4 create --template minimal --types ts --add prettier eslint tailwindcss="plugins:typography,forms" --install bun portfolio
+```
+
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```sh
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```sh
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
