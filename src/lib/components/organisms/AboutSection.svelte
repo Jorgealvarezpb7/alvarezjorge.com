@@ -10,8 +10,8 @@
 		<div class="aspect-square rounded-2xl bg-gradient-to-br from-cyan-400 to-emerald-400"></div>
 		<div class="space-y-4 text-muted-foreground">
 			<p>
-				<span class="font-bold text-foreground">Desarrollador Web</span> en transicion hacia una
-				carrera en tecnologia.
+				<span class="font-bold text-foreground">Desarrollador Web</span> en transicion hacia una carrera
+				en tecnologia.
 			</p>
 			<p>
 				Actualmente mi foco esta en aprender y dominar las habilidades esenciales del desarrollo

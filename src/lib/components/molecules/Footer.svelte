@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { name = 'Tu Nombre' }: { name?: string } = $props();
+	let { name = 'Jorge Alvarez' }: { name?: string } = $props();
 	const year = 2026;
 </script>
 

@@ -2,7 +2,7 @@
 	import Header from '$lib/components/molecules/Header.svelte';
 	import Footer from '$lib/components/molecules/Footer.svelte';
 	import HeroSection from '$lib/components/organisms/HeroSection.svelte';
-	import MarqueeSection from '$lib/components/organisms/MarqueeSection.svelte';
+	import TechnologiesSection from '$lib/components/organisms/TechnologiesSection.svelte';
 	import AboutSection from '$lib/components/organisms/AboutSection.svelte';
 	import ExperienceSection from '$lib/components/organisms/ExperienceSection.svelte';
 	import FormationSection from '$lib/components/organisms/FormationSection.svelte';
@@ -13,7 +13,7 @@
 
 <main>
 	<HeroSection />
-	<MarqueeSection />
+	<TechnologiesSection />
 	<AboutSection />
 	<ExperienceSection />
 	<FormationSection />

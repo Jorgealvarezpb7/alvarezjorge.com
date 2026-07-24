@@ -1,9 +1,5 @@
 <script lang="ts">
-	let {
-		href,
-		label,
-		active = false
-	}: { href: string; label: string; active?: boolean } = $props();
+	let { href, label, active = false }: { href: string; label: string; active?: boolean } = $props();
 </script>
 
 <a

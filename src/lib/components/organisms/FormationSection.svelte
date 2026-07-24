@@ -22,7 +22,12 @@
 	</div>
 	<div>
 		{#each rows as row (row.title)}
-			<FormationRow techs={[...row.techs]} title={row.title} provider={row.provider} duration={row.duration} />
+			<FormationRow
+				techs={[...row.techs]}
+				title={row.title}
+				provider={row.provider}
+				duration={row.duration}
+			/>
 		{/each}
 	</div>
 </section>
