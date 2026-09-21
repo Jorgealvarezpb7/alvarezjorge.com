@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rtk ls *)",
+      "Bash(rtk read *)",
+      "Bash(rtk find *)",
+      "Bash(bun --version)",
+      "Bash(rtk git *)",
+      "Bash(bunx sv *)",
+      "Bash(bun run *)",
+      "Skill(run)",
+      "Bash(chromium-cli *)",
+      "Bash(node -e \"require\\('playwright'\\)\")",
+      "Bash(bun pm *)",
+      "Bash(timeout 60 npx --yes playwright@latest --version)",
+      "Bash(timeout 120 npx --yes playwright@latest install --with-deps chromium)",
+      "Bash(npm root *)",
+      "Bash(NODE_PATH=$\\(npm root -g \\) node --experimental-vm-modules shot.mjs full.png)",
+      "Bash(npx --yes playwright@latest --help)",
+      "Bash(node -e \"console.log\\(require.resolve\\('playwright'\\)\\)\")",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(rtk grep *)",
+      "Bash(bun add *)",
+      "Bash(node *)"
+    ]
+  }
+}

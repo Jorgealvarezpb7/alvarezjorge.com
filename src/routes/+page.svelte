@@ -1,2 +1,23 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+	import Header from '$lib/components/molecules/Header.svelte';
+	import Footer from '$lib/components/molecules/Footer.svelte';
+	import HeroSection from '$lib/components/organisms/HeroSection.svelte';
+	import TechnologiesSection from '$lib/components/organisms/TechnologiesSection.svelte';
+	import AboutSection from '$lib/components/organisms/AboutSection.svelte';
+	import ExperienceSection from '$lib/components/organisms/ExperienceSection.svelte';
+	import FormationSection from '$lib/components/organisms/FormationSection.svelte';
+	import ContactSection from '$lib/components/organisms/ContactSection.svelte';
+</script>
+
+<Header />
+
+<main>
+	<HeroSection />
+	<TechnologiesSection />
+	<AboutSection />
+	<ExperienceSection />
+	<FormationSection />
+	<ContactSection />
+</main>
+
+<Footer />
