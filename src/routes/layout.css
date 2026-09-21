@@ -16,3 +16,11 @@
 	--color-accent: #0d9488;
 	--color-accent-soft: #ccfbf1;
 }
+
+/*
+ * Sticky header is ~105px tall and sections have 80px top padding, so anchor jumps
+ * need a little extra offset for the section title to land below the header.
+ */
+html {
+	scroll-padding-top: 3rem;
+}

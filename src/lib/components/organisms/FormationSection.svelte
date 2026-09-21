@@ -3,17 +3,25 @@
 	import FormationRow from '$lib/components/molecules/FormationRow.svelte';
 
 	const rows = [
-		{ techs: ['figma'], title: 'UI / UX Design', provider: 'Platzi', duration: '17 horas' },
-		{ techs: ['html'], title: 'HTML & CSS', provider: 'Platzi', duration: '23 horas' },
-		{ techs: ['css'], title: 'CSS Flexbox & Grid', provider: 'Platzi', duration: '8 horas' },
-		{ techs: ['js'], title: 'JavaScript', provider: 'Platzi', duration: '37 horas' },
 		{
-			techs: ['html', 'css', 'js'],
-			title: 'Aprende a Programar con JS, HTML y CSS',
-			provider: 'Rodrigo Branas',
-			duration: '12 horas'
+			title: 'Grado Superior en Desarrollo de Aplicaciones Web',
+			provider: 'UNIVERSAE, Madrid, España',
+			duration: '02/2024 - 02/2026'
+		},
+		{
+			title: 'Grado superior en Desarrollo de Aplicaciones multiplataforma',
+			provider: 'UNIVERSAE, Madrid, España',
+			duration: '02/2024 - 06/2025'
+		},
+		{
+			title: 'Head First Java (3rd Edition)',
+			provider: "Kathy Sierra, Bert Bates & Trisha Gee · O'Reilly"
+		},
+		{
+			title: 'Programming TypeScript',
+			provider: "Boris Cherny · O'Reilly"
 		}
-	] as const;
+	];
 </script>
 
 <section id="formation" class="mx-auto max-w-6xl px-6 py-20">
@@ -22,12 +30,7 @@
 	</div>
 	<div>
 		{#each rows as row (row.title)}
-			<FormationRow
-				techs={[...row.techs]}
-				title={row.title}
-				provider={row.provider}
-				duration={row.duration}
-			/>
+			<FormationRow {...row} />
 		{/each}
 	</div>
 </section>

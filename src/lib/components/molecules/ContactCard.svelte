@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Icon from '$lib/components/atoms/Icon.svelte';
 
-	type IconName = 'linkedin' | 'instagram' | 'github' | 'mail';
+	type IconName = 'linkedin' | 'instagram' | 'github' | 'mail' | 'globe';
 
 	let { icon, label, href }: { icon: IconName; label: string; href: string } = $props();
 </script>

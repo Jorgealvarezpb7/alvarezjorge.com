@@ -6,7 +6,6 @@
 		{ href: '#about', label: 'Sobre mi', active: true },
 		{ href: '#experience', label: 'Experiencia' },
 		{ href: '#formation', label: 'Formacion' },
-		{ href: '#projects', label: 'Proyectos' },
 		{ href: '#contact', label: 'Contacto' }
 	];
 </script>
