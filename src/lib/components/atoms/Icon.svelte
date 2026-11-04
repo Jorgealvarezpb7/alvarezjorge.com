@@ -1,6 +1,14 @@
 <script lang="ts">
 	type IconName =
-		'arrow-up-right' | 'linkedin' | 'instagram' | 'github' | 'mail' | 'globe' | 'map-pin';
+		| 'arrow-up-right'
+		| 'chevron-down'
+		| 'download'
+		| 'linkedin'
+		| 'instagram'
+		| 'github'
+		| 'mail'
+		| 'globe'
+		| 'map-pin';
 
 	let { name, class: className = '' }: { name: IconName; class?: string } = $props();
 </script>
@@ -8,6 +16,18 @@
 {#if name === 'arrow-up-right'}
 	<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class={className}>
 		<path d="M7 17 17 7M7 7h10v10" stroke-linecap="round" stroke-linejoin="round" />
+	</svg>
+{:else if name === 'chevron-down'}
+	<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class={className}>
+		<path d="m6 9 6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+	</svg>
+{:else if name === 'download'}
+	<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class={className}>
+		<path
+			d="M12 4v11m-4.5-4.5L12 15l4.5-4.5M5 20h14"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+		/>
 	</svg>
 {:else if name === 'linkedin'}
 	<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class={className}>
