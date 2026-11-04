@@ -4,6 +4,7 @@
 	import HeroSection from '$lib/components/organisms/HeroSection.svelte';
 	import TechnologiesSection from '$lib/components/organisms/TechnologiesSection.svelte';
 	import AboutSection from '$lib/components/organisms/AboutSection.svelte';
+	import ProjectsSection from '$lib/components/organisms/ProjectsSection.svelte';
 	import ExperienceSection from '$lib/components/organisms/ExperienceSection.svelte';
 	import FormationSection from '$lib/components/organisms/FormationSection.svelte';
 	import ContactSection from '$lib/components/organisms/ContactSection.svelte';
@@ -15,6 +16,7 @@
 	<HeroSection />
 	<TechnologiesSection />
 	<AboutSection />
+	<ProjectsSection />
 	<ExperienceSection />
 	<FormationSection />
 	<ContactSection />
