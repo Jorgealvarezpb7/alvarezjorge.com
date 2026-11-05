@@ -2,6 +2,7 @@
 	import SectionHeading from '$lib/components/atoms/SectionHeading.svelte';
 	import ProjectCard from '$lib/components/molecules/ProjectCard.svelte';
 	import notelyIcon from '$lib/assets/icon notely 2.png';
+	import suniLogo from '$lib/assets/suni-logo.svg';
 
 	const projects = [
 		{
@@ -24,6 +25,29 @@
 			],
 			tags: ['Swift', 'SwiftUI', 'AppKit', 'SQLite', 'GitHub API', 'OpenSpec'],
 			repo: 'https://github.com/Jorgealvarezpb7/Notely'
+		},
+		{
+			icon: suniLogo,
+			title: 'Suni',
+			category: 'Plataforma de voluntariado',
+			role: 'Desarrollador full-stack',
+			period: 'jun. 2026 – actualidad',
+			summary: 'Plataforma que conecta a personas voluntarias con misiones de ONG.',
+			story:
+				'Tiene un sitio público, una app para voluntarios y un panel de administración. Trabajé en todas estas partes dentro de un equipo pequeño.',
+			highlights: [
+				'Desarrollé la experiencia de misiones: listado público, tarjetas, cuenta atrás, render de contenido de Editor.js y confirmación para cancelar la participación.',
+				'Implementé de punta a punta un endpoint público de contadores globales, desde el servicio de dominio en Rust hasta las métricas de la landing.',
+				'Añadí filtros a la lista de voluntarios del panel de administración, de la capa SQL a la API, con tests e2e sobre PostgreSQL real.',
+				'Creé la página de resumen de cada voluntario, con sus habilidades, ampliando la API de administración.',
+				'Construí la gestión de habilidades siguiendo Spec-Driven Development: árbol plegable, modales de creación y edición, y aviso de pérdida de datos al borrar en cascada.',
+				'Hice las primeras pantallas para voluntarios: navegación, selector de país y teléfono, mensajes de error y política de privacidad.',
+				'Renové la landing con nueva paleta, tipografía y secciones rediseñadas.'
+			],
+			tags: ['SvelteKit', 'TypeScript', 'Rust', 'Axum', 'PostgreSQL', 'Tailwind CSS'],
+			repo: 'https://github.com/whizzes/suniglobal.org',
+			link: 'https://suniglobal.org/',
+			background: '#F77C2C'
 		}
 	];
 </script>
