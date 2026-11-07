@@ -3,16 +3,20 @@
 	import Chip from '$lib/components/atoms/Chip.svelte';
 	import Logo from '$lib/components/atoms/Logo.svelte';
 	import ContactCard from '$lib/components/molecules/ContactCard.svelte';
+	import Seo from '$lib/components/atoms/Seo.svelte';
+	import { PERSON_NAME } from '$lib/seo';
 	import ArrowLeft from '~icons/lucide/arrow-left';
 
 	let { data } = $props();
 	const project = $derived(data.project);
 </script>
 
-<svelte:head>
-	<title>{project.title} — Jorge Alvarez</title>
-	<meta name="description" content={project.summary} />
-</svelte:head>
+<Seo
+	title="{project.title} — {PERSON_NAME}"
+	description={project.summary}
+	path="/proyectos/{project.slug}"
+	type="article"
+/>
 
 <header
 	class="sticky top-0 z-20 flex items-center justify-between gap-4 border-b border-border bg-background px-12 py-3.5"
