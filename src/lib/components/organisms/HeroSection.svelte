@@ -27,7 +27,7 @@
 			<h1
 				class="m-0 font-display text-[84px] leading-[0.86] font-bold tracking-[-0.05em] text-foreground uppercase md:text-[168px] wide:text-[clamp(72px,10.5vw,168px)]"
 			>
-				Jorge<br />Alvarez
+				Jorge <br />Alvarez
 			</h1>
 			<div class="mt-3 flex flex-wrap items-center gap-4 text-lg text-foreground-soft">
 				<span class="font-display text-2xl font-medium text-foreground">Full Stack Developer</span>
