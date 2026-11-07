@@ -1,20 +1,16 @@
 <script lang="ts">
-	import Icon from '$lib/components/atoms/Icon.svelte';
+	let { label, href }: { label: string; href: string } = $props();
 
-	type IconName = 'linkedin' | 'instagram' | 'github' | 'mail' | 'globe';
-
-	let { icon, label, href }: { icon: IconName; label: string; href: string } = $props();
+	const opensNewTab = $derived(href.startsWith('http'));
 </script>
 
+<!-- Always an external destination (profile, repository, live site or mailto:). -->
 <a
 	{href}
-	target="_blank"
-	rel="noreferrer"
-	class="flex items-center justify-between rounded-xl border border-border px-6 py-4 transition-colors hover:border-accent"
+	target={opensNewTab ? '_blank' : undefined}
+	rel="external noreferrer"
+	class="flex flex-[1_1_240px] items-center justify-between rounded-full border border-foreground px-7 py-6 font-display text-2xl font-medium text-foreground transition-colors duration-150 hover:bg-accent hover:text-on-accent"
 >
-	<span class="flex items-center gap-3 font-medium text-foreground">
-		<Icon name={icon} class="h-5 w-5" />
-		{label}
-	</span>
-	<Icon name="arrow-up-right" class="h-4 w-4 text-accent" />
+	{label}
+	<span aria-hidden="true">↗</span>
 </a>

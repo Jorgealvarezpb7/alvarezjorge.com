@@ -1,29 +1,24 @@
 <script lang="ts">
-	import TechIcon from '$lib/components/atoms/TechIcon.svelte';
-
-	type Tech = 'html' | 'css' | 'js' | 'figma' | 'git';
-
 	let {
-		techs = [],
 		title,
 		provider,
 		duration
-	}: { techs?: Tech[]; title: string; provider: string; duration: string } = $props();
+	}: {
+		/** Title lines; each line break is kept as in the design. */
+		title: string[];
+		provider: string;
+		duration: string;
+	} = $props();
 </script>
 
-<div class="flex items-center justify-between gap-4 border-b border-border py-6 last:border-none">
-	<div class="flex items-center gap-4">
-		{#if techs.length}
-			<div class="flex -space-x-3">
-				{#each techs as tech (tech)}
-					<TechIcon {tech} size="sm" />
-				{/each}
-			</div>
-		{/if}
-		<span class="font-bold text-foreground">{title}</span>
+<div class="flex flex-wrap justify-between gap-4 border-t border-line py-7 last:border-b">
+	<div class="flex flex-col gap-1.5">
+		<p class="m-0 font-display text-[32px] leading-[1.15] font-medium tracking-[-0.02em]">
+			{#each title as line, i (i)}
+				{#if i > 0}<br />{/if}{line}
+			{/each}
+		</p>
+		<p class="m-0 text-[15px] text-muted-foreground">{provider}</p>
 	</div>
-	<div class="shrink-0 text-sm text-muted-foreground">
-		<span class="text-foreground">{provider}</span>
-		{duration}
-	</div>
+	<span class="text-[15px] text-foreground-soft">{duration}</span>
 </div>

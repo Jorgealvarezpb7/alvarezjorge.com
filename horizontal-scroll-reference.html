@@ -1,0 +1,1810 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Jorge Alvarez — Portafolio (referencia de diseño)</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;700&amp;family=Instrument+Serif:ital@1&amp;display=swap"
+		/>
+		<style>
+			body {
+				margin: 0;
+			}
+			a {
+				color: #173f35;
+			}
+			a:hover {
+				color: #0e2a23;
+			}
+			.track {
+				scrollbar-width: none;
+			}
+			.track::-webkit-scrollbar {
+				display: none;
+			}
+			.panel {
+				flex: 0 0 100%;
+				box-sizing: border-box;
+				height: 100%;
+				overflow-y: auto;
+			}
+			.panel-wide {
+				flex: 0 0 auto;
+				width: max(100%, 1640px);
+			}
+			.navbtn {
+				background: none;
+				border: 0;
+				cursor: pointer;
+				font: inherit;
+				padding: 12px 4px;
+				min-height: 44px;
+			}
+			.navbtn:hover {
+				opacity: 0.7;
+			}
+			.chip:hover {
+				background: #173f35;
+				color: #ecefe8;
+			}
+			.biglink:hover {
+				background: #173f35;
+				color: #ecefe8;
+			}
+			@media (max-width: 760px) {
+				.root {
+					height: auto !important;
+				}
+				.track {
+					flex-direction: column !important;
+					overflow: visible !important;
+				}
+				.panel,
+				.panel-wide {
+					flex: none !important;
+					width: auto !important;
+					height: auto !important;
+					min-height: 0 !important;
+				}
+				.hide-sm {
+					display: none !important;
+				}
+				.name {
+					font-size: 84px !important;
+				}
+				.bigtext {
+					font-size: 30px !important;
+				}
+				.contact-title {
+					font-size: 56px !important;
+				}
+				.tl {
+					flex-direction: column !important;
+				}
+				.tl-line {
+					display: none !important;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div
+			class="root"
+			style="
+				height: 100vh;
+				display: flex;
+				flex-direction: column;
+				background: #ecefe8;
+				color: #11201b;
+				font-family: Inter, system-ui, sans-serif;
+			"
+		>
+			<!-- Header -->
+			<header
+				style="
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+					justify-content: space-between;
+					gap: 16px;
+					padding: 14px 48px;
+					border-bottom: 1px solid #d3dad2;
+				"
+			>
+				<button
+					class="navbtn"
+					data-go="0"
+					aria-label="Ir al inicio"
+					style="
+						font-family: 'Space Grotesk', sans-serif;
+						font-weight: 700;
+						font-size: 22px;
+						letter-spacing: -0.02em;
+						color: #11201b;
+					"
+				>
+					JA<span style="color: #173f35">.</span>
+				</button>
+				<nav
+					aria-label="Secciones"
+					style="display: flex; flex-wrap: wrap; gap: 24px; font-size: 15px"
+				>
+					<button class="navbtn" data-go="1" style="color: #4a5a53; font-weight: 400">
+						Sobre mí</button
+					><button class="navbtn" data-go="2" style="color: #4a5a53; font-weight: 400">
+						Proyectos</button
+					><button class="navbtn" data-go="3" style="color: #4a5a53; font-weight: 400">
+						Experiencia</button
+					><button class="navbtn" data-go="4" style="color: #4a5a53; font-weight: 400">
+						Formación</button
+					><button class="navbtn" data-go="5" style="color: #4a5a53; font-weight: 400">
+						Contacto
+					</button>
+				</nav>
+				<div
+					class="hide-sm"
+					style="
+						display: flex;
+						align-items: center;
+						gap: 12px;
+						font-family: 'Space Grotesk', sans-serif;
+						font-size: 15px;
+						color: #4a5a53;
+					"
+				>
+					<span><span id="counter">00 / 05</span></span>
+					<button
+						class="navbtn"
+						data-prev
+						aria-label="Sección anterior"
+						style="
+							width: 44px;
+							height: 44px;
+							border: 1px solid #c4cdc3;
+							border-radius: 999px;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							color: #11201b;
+						"
+					>
+						<svg
+							width="18"
+							height="18"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							aria-hidden="true"
+						>
+							<path d="M15 18l-6-6 6-6"></path>
+						</svg>
+					</button>
+					<button
+						class="navbtn"
+						data-next
+						aria-label="Sección siguiente"
+						style="
+							width: 44px;
+							height: 44px;
+							border: 0;
+							border-radius: 999px;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							background: #173f35;
+							color: #ecefe8;
+						"
+					>
+						<svg
+							width="18"
+							height="18"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							aria-hidden="true"
+						>
+							<path d="M9 18l6-6-6-6"></path>
+						</svg>
+					</button>
+				</div>
+			</header>
+
+			<!-- Progress -->
+			<div class="hide-sm" style="height: 3px; background: #d3dad2">
+				<div
+					style="height: 3px; background: #173f35; width: 0%"
+					id="progress; transition: width 120ms linear"
+				></div>
+			</div>
+
+			<!-- Horizontal track -->
+			<main
+				class="track"
+				id="track"
+				style="
+					flex: 1;
+					min-height: 0;
+					display: flex;
+					flex-direction: row;
+					overflow-x: auto;
+					overflow-y: hidden;
+					position: relative;
+				"
+			>
+				<!-- 00 · Hero -->
+				<section
+					class="panel"
+					id="inicio"
+					aria-label="Inicio"
+					style="padding: 48px 64px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px"
+				>
+					<div
+						style="
+							flex: 999 1 560px;
+							min-width: 0;
+							display: flex;
+							flex-direction: column;
+							gap: 20px;
+						"
+					>
+						<span
+							style="
+								align-self: flex-start;
+								display: inline-flex;
+								align-items: center;
+								gap: 10px;
+								padding: 8px 16px;
+								border: 1px solid #c4cdc3;
+								border-radius: 999px;
+								font-size: 14px;
+								color: #2e3f38;
+							"
+						>
+							<span
+								aria-hidden="true"
+								style="width: 8px; height: 8px; border-radius: 999px; background: #2f9e6b"
+							></span
+							>Disponible para nuevos proyectos
+						</span>
+						<p
+							style="
+								margin: 0;
+								font-family: 'Instrument Serif', serif;
+								font-style: italic;
+								font-size: 64px;
+								line-height: 1;
+								color: #173f35;
+							"
+						>
+							Hola, soy
+						</p>
+						<h1
+							class="name"
+							style="
+								margin: 0;
+								font-family: 'Space Grotesk', sans-serif;
+								font-weight: 700;
+								font-size: 168px;
+								line-height: 0.86;
+								letter-spacing: -0.05em;
+								text-transform: uppercase;
+							"
+						>
+							Jorge<br />Alvarez
+						</h1>
+						<div
+							style="
+								display: flex;
+								flex-wrap: wrap;
+								align-items: center;
+								gap: 16px;
+								margin-top: 12px;
+								font-size: 18px;
+								color: #2e3f38;
+							"
+						>
+							<span
+								style="
+									font-family: 'Space Grotesk', sans-serif;
+									font-weight: 500;
+									font-size: 24px;
+									color: #11201b;
+								"
+								>Full Stack Developer</span
+							>
+							<span aria-hidden="true" style="width: 40px; height: 1px; background: #8c9a93"></span>
+							<span>Madrid, España</span>
+						</div>
+					</div>
+					<div
+						style="
+							flex: 1 1 320px;
+							min-width: 0;
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+							gap: 24px;
+						"
+					>
+						<div
+							role="img"
+							aria-label="Espacio para la foto de Jorge"
+							style="
+								width: 100%;
+								max-width: 400px;
+								aspect-ratio: 4 / 5;
+								border-radius: 200px 200px 24px 24px;
+								background: #173f35;
+								display: flex;
+								align-items: flex-end;
+								justify-content: center;
+								padding-bottom: 32px;
+								box-sizing: border-box;
+								color: #a9bdb4;
+								font-size: 14px;
+								letter-spacing: 0.08em;
+								text-transform: uppercase;
+							"
+						>
+							[Tu foto · recorte]
+						</div>
+						<button
+							class="navbtn hide-sm"
+							data-next
+							style="display: flex; align-items: center; gap: 12px; color: #4a5a53; font-size: 15px"
+						>
+							Desliza para explorar
+							<svg
+								width="40"
+								height="16"
+								viewBox="0 0 40 16"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.6"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<path d="M1 8h37M31 1l7 7-7 7"></path>
+							</svg>
+						</button>
+					</div>
+				</section>
+
+				<!-- 01 · Sobre mí -->
+				<section
+					class="panel"
+					id="about"
+					aria-label="Sobre mí"
+					style="
+						padding: 64px;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						gap: 48px;
+						border-left: 1px solid #d3dad2;
+					"
+				>
+					<div
+						style="
+							display: flex;
+							align-items: baseline;
+							gap: 16px;
+							font-family: 'Space Grotesk', sans-serif;
+						"
+					>
+						<span style="font-size: 15px; color: #173f35; font-weight: 700">01</span>
+						<h2
+							style="
+								margin: 0;
+								font-size: 15px;
+								font-weight: 500;
+								letter-spacing: 0.12em;
+								text-transform: uppercase;
+								color: #4a5a53;
+							"
+						>
+							Sobre mí
+						</h2>
+					</div>
+					<p
+						class="bigtext"
+						style="
+							margin: 0;
+							max-width: 1080px;
+							font-family: 'Space Grotesk', sans-serif;
+							font-size: 52px;
+							line-height: 1.12;
+							letter-spacing: -0.025em;
+							font-weight: 500;
+						"
+					>
+						Entusiasta del
+						<span
+							style="
+								font-family: 'Instrument Serif', serif;
+								font-style: italic;
+								font-weight: 400;
+								color: #173f35;
+							"
+							>diseño</span
+						>
+						y del desarrollo web y de software que mejore la usabilidad de los sistemas e integre
+						los procesos empresariales.
+					</p>
+					<div style="display: flex; flex-direction: column; gap: 16px">
+						<h3
+							style="
+								margin: 0;
+								font-size: 15px;
+								font-weight: 500;
+								letter-spacing: 0.12em;
+								text-transform: uppercase;
+								color: #4a5a53;
+							"
+						>
+							Tecnologías
+						</h3>
+						<ul
+							style="
+								list-style: none;
+								margin: 0;
+								padding: 0;
+								display: flex;
+								flex-wrap: wrap;
+								gap: 10px;
+								max-width: 1080px;
+							"
+						>
+							<li
+								class="chip"
+								style="
+									padding: 10px 18px;
+									border: 1px solid #b9c4ba;
+									border-radius: 999px;
+									font-size: 15px;
+									color: #11201b;
+									transition: background 150ms;
+								"
+							>
+								Svelte
+							</li>
+							<li
+								class="chip"
+								style="
+									padding: 10px 18px;
+									border: 1px solid #b9c4ba;
+									border-radius: 999px;
+									font-size: 15px;
+									color: #11201b;
+									transition: background 150ms;
+								"
+							>
+								TypeScript
+							</li>
+							<li
+								class="chip"
+								style="
+									padding: 10px 18px;
+									border: 1px solid #b9c4ba;
+									border-radius: 999px;
+									font-size: 15px;
+									color: #11201b;
+									transition: background 150ms;
+								"
+							>
+								JavaScript
+							</li>
+							<li
+								class="chip"
+								style="
+									padding: 10px 18px;
+									border: 1px solid #b9c4ba;
+									border-radius: 999px;
+									font-size: 15px;
+									color: #11201b;
+									transition: background 150ms;
+								"
+							>
+								React
+							</li>
+							<li
+								class="chip"
+								style="
+									padding: 10px 18px;
+									border: 1px solid #b9c4ba;
+									border-radius: 999px;
+									font-size: 15px;
+									color: #11201b;
+									transition: background 150ms;
+								"
+							>
+								Angular
+							</li>
+							<li
+								class="chip"
+								style="
+									padding: 10px 18px;
+									border: 1px solid #b9c4ba;
+									border-radius: 999px;
+									font-size: 15px;
+									color: #11201b;
+									transition: background 150ms;
+								"
+							>
+								Spring Boot
+							</li>
+							<li
+								class="chip"
+								style="
+									padding: 10px 18px;
+									border: 1px solid #b9c4ba;
+									border-radius: 999px;
+									font-size: 15px;
+									color: #11201b;
+									transition: background 150ms;
+								"
+							>
+								Java
+							</li>
+							<li
+								class="chip"
+								style="
+									padding: 10px 18px;
+									border: 1px solid #b9c4ba;
+									border-radius: 999px;
+									font-size: 15px;
+									color: #11201b;
+									transition: background 150ms;
+								"
+							>
+								TailwindCSS
+							</li>
+							<li
+								class="chip"
+								style="
+									padding: 10px 18px;
+									border: 1px solid #b9c4ba;
+									border-radius: 999px;
+									font-size: 15px;
+									color: #11201b;
+									transition: background 150ms;
+								"
+							>
+								Sass
+							</li>
+							<li
+								class="chip"
+								style="
+									padding: 10px 18px;
+									border: 1px solid #b9c4ba;
+									border-radius: 999px;
+									font-size: 15px;
+									color: #11201b;
+									transition: background 150ms;
+								"
+							>
+								HTML5
+							</li>
+							<li
+								class="chip"
+								style="
+									padding: 10px 18px;
+									border: 1px solid #b9c4ba;
+									border-radius: 999px;
+									font-size: 15px;
+									color: #11201b;
+									transition: background 150ms;
+								"
+							>
+								CSS3
+							</li>
+							<li
+								class="chip"
+								style="
+									padding: 10px 18px;
+									border: 1px solid #b9c4ba;
+									border-radius: 999px;
+									font-size: 15px;
+									color: #11201b;
+									transition: background 150ms;
+								"
+							>
+								MySQL
+							</li>
+							<li
+								class="chip"
+								style="
+									padding: 10px 18px;
+									border: 1px solid #b9c4ba;
+									border-radius: 999px;
+									font-size: 15px;
+									color: #11201b;
+									transition: background 150ms;
+								"
+							>
+								PostgreSQL
+							</li>
+							<li
+								class="chip"
+								style="
+									padding: 10px 18px;
+									border: 1px solid #b9c4ba;
+									border-radius: 999px;
+									font-size: 15px;
+									color: #11201b;
+									transition: background 150ms;
+								"
+							>
+								Docker
+							</li>
+							<li
+								class="chip"
+								style="
+									padding: 10px 18px;
+									border: 1px solid #b9c4ba;
+									border-radius: 999px;
+									font-size: 15px;
+									color: #11201b;
+									transition: background 150ms;
+								"
+							>
+								Git
+							</li>
+							<li
+								class="chip"
+								style="
+									padding: 10px 18px;
+									border: 1px solid #b9c4ba;
+									border-radius: 999px;
+									font-size: 15px;
+									color: #11201b;
+									transition: background 150ms;
+								"
+							>
+								Shopify
+							</li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- 02 · Proyectos -->
+				<section
+					class="panel"
+					id="projects"
+					aria-label="Últimos proyectos"
+					style="
+						padding: 64px;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						gap: 40px;
+						background: #173f35;
+						color: #ecefe8;
+					"
+				>
+					<div
+						style="
+							display: flex;
+							align-items: baseline;
+							gap: 16px;
+							font-family: 'Space Grotesk', sans-serif;
+						"
+					>
+						<span style="font-size: 15px; color: #c9f06b; font-weight: 700">02</span>
+						<h2
+							style="
+								margin: 0;
+								font-size: 15px;
+								font-weight: 500;
+								letter-spacing: 0.12em;
+								text-transform: uppercase;
+								color: #a9bdb4;
+							"
+						>
+							Últimos proyectos
+						</h2>
+					</div>
+					<div
+						style="
+							display: grid;
+							grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+							gap: 24px;
+						"
+					>
+						<article
+							style="
+								background: #1f4c41;
+								border-radius: 24px;
+								padding: 40px;
+								display: flex;
+								flex-direction: column;
+								gap: 20px;
+								min-height: 380px;
+								box-sizing: border-box;
+							"
+						>
+							<div
+								style="
+									display: flex;
+									justify-content: space-between;
+									align-items: center;
+									gap: 12px;
+									flex-wrap: wrap;
+								"
+							>
+								<span
+									style="
+										padding: 6px 14px;
+										border-radius: 999px;
+										background: #c9f06b;
+										color: #11201b;
+										font-size: 13px;
+										font-weight: 600;
+									"
+									>Open source</span
+								>
+								<span style="font-size: 14px; color: #a9bdb4">sept. 2026 – actualidad</span>
+							</div>
+							<h3
+								style="
+									margin: 0;
+									font-family: 'Space Grotesk', sans-serif;
+									font-size: 72px;
+									font-weight: 700;
+									letter-spacing: -0.04em;
+									line-height: 1;
+								"
+							>
+								Notely
+							</h3>
+							<p
+								style="
+									margin: 0;
+									font-size: 14px;
+									color: #a9bdb4;
+									text-transform: uppercase;
+									letter-spacing: 0.08em;
+								"
+							>
+								Creador y desarrollador
+							</p>
+							<p
+								style="
+									margin: 0;
+									font-size: 18px;
+									line-height: 1.55;
+									color: #dce5df;
+									max-width: 520px;
+								"
+							>
+								App nativa de macOS de notas adhesivas con checklists, descripciones en Markdown y
+								sincronización con issues de GitHub.
+							</p>
+							<a
+								href="https://github.com/Jorgealvarezpb7/Notely"
+								style="
+									margin-top: auto;
+									align-self: flex-start;
+									display: inline-flex;
+									align-items: center;
+									gap: 10px;
+									color: #c9f06b;
+									font-weight: 600;
+									font-size: 16px;
+									text-decoration: none;
+									padding: 10px 0;
+								"
+								>Ver en GitHub
+								<svg
+									width="16"
+									height="16"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+								>
+									<path d="M7 17L17 7M8 7h9v9"></path>
+								</svg>
+							</a>
+						</article>
+						<article
+							style="
+								background: #1f4c41;
+								border-radius: 24px;
+								padding: 40px;
+								display: flex;
+								flex-direction: column;
+								gap: 20px;
+								min-height: 380px;
+								box-sizing: border-box;
+							"
+						>
+							<div
+								style="
+									display: flex;
+									justify-content: space-between;
+									align-items: center;
+									gap: 12px;
+									flex-wrap: wrap;
+								"
+							>
+								<span
+									style="
+										padding: 6px 14px;
+										border-radius: 999px;
+										background: #ecefe8;
+										color: #11201b;
+										font-size: 13px;
+										font-weight: 600;
+									"
+									>Plataforma de voluntariado</span
+								>
+								<span style="font-size: 14px; color: #a9bdb4">jun. 2026 – actualidad</span>
+							</div>
+							<h3
+								style="
+									margin: 0;
+									font-family: 'Space Grotesk', sans-serif;
+									font-size: 72px;
+									font-weight: 700;
+									letter-spacing: -0.04em;
+									line-height: 1;
+								"
+							>
+								Suni
+							</h3>
+							<p
+								style="
+									margin: 0;
+									font-size: 14px;
+									color: #a9bdb4;
+									text-transform: uppercase;
+									letter-spacing: 0.08em;
+								"
+							>
+								Full-stack developer
+							</p>
+							<p
+								style="
+									margin: 0;
+									font-size: 18px;
+									line-height: 1.55;
+									color: #dce5df;
+									max-width: 520px;
+								"
+							>
+								Plataforma que conecta a personas voluntarias con misiones de ONGs.
+							</p>
+							<a
+								href="https://github.com/whizzes/suniglobal.org"
+								style="
+									margin-top: auto;
+									align-self: flex-start;
+									display: inline-flex;
+									align-items: center;
+									gap: 10px;
+									color: #c9f06b;
+									font-weight: 600;
+									font-size: 16px;
+									text-decoration: none;
+									padding: 10px 0;
+								"
+								>Ver en GitHub
+								<svg
+									width="16"
+									height="16"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+								>
+									<path d="M7 17L17 7M8 7h9v9"></path>
+								</svg>
+							</a>
+						</article>
+					</div>
+				</section>
+
+				<!-- 03 · Experiencia (panel ancho, timeline horizontal) -->
+				<section
+					class="panel-wide panel"
+					id="experience"
+					aria-label="Experiencia"
+					style="
+						padding: 64px;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						gap: 48px;
+					"
+				>
+					<div
+						style="
+							display: flex;
+							align-items: baseline;
+							gap: 16px;
+							font-family: 'Space Grotesk', sans-serif;
+						"
+					>
+						<span style="font-size: 15px; color: #173f35; font-weight: 700">03</span>
+						<h2
+							style="
+								margin: 0;
+								font-size: 15px;
+								font-weight: 500;
+								letter-spacing: 0.12em;
+								text-transform: uppercase;
+								color: #4a5a53;
+							"
+						>
+							Experiencia
+						</h2>
+					</div>
+					<div style="position: relative">
+						<div
+							class="tl-line"
+							aria-hidden="true"
+							style="
+								position: absolute;
+								left: 0;
+								right: 0;
+								top: 7px;
+								height: 1px;
+								background: #b9c4ba;
+							"
+						></div>
+						<ol
+							class="tl"
+							style="
+								list-style: none;
+								margin: 0;
+								padding: 0;
+								display: flex;
+								gap: 24px;
+								position: relative;
+							"
+						>
+							<li
+								style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px"
+							>
+								<span
+									aria-hidden="true"
+									style="
+										width: 15px;
+										height: 15px;
+										border-radius: 999px;
+										background: #173f35;
+										border: 3px solid #ecefe8;
+										box-sizing: border-box;
+										outline: 1px solid #173f35;
+									"
+								></span>
+								<div
+									style="
+										background: #ffffff;
+										border: 1px solid #d3dad2;
+										border-radius: 20px;
+										padding: 28px;
+										display: flex;
+										flex-direction: column;
+										gap: 12px;
+										min-height: 340px;
+										box-sizing: border-box;
+									"
+								>
+									<span
+										style="
+											font-size: 13px;
+											color: #4a5a53;
+											letter-spacing: 0.06em;
+											text-transform: uppercase;
+										"
+										>11/2025 – actualidad</span
+									>
+									<h3
+										style="
+											margin: 0;
+											font-family: 'Space Grotesk', sans-serif;
+											font-size: 28px;
+											font-weight: 700;
+											letter-spacing: -0.02em;
+											line-height: 1.1;
+										"
+									>
+										Whizzes
+									</h3>
+									<p style="margin: 0; font-size: 14px; font-weight: 600; color: #173f35">
+										Full Stack
+									</p>
+									<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #2e3f38">
+										Desarrollo y personalización de tiendas Shopify para thebalancelab.es:
+										adaptación de temas, configuración de la tienda e integraciones orientadas a
+										ventas.
+									</p>
+									<div
+										style="
+											margin-top: auto;
+											display: flex;
+											flex-wrap: wrap;
+											align-items: center;
+											justify-content: space-between;
+											gap: 8px;
+										"
+									>
+										<span
+											style="
+												padding: 5px 12px;
+												border-radius: 999px;
+												background: #e2e8e0;
+												font-size: 13px;
+												color: #11201b;
+											"
+											>Shopify / Hydrogen</span
+										>
+										<a
+											href="https://thebalancelab.es"
+											style="
+												font-size: 14px;
+												font-weight: 600;
+												text-decoration: none;
+												padding: 10px 0;
+											"
+											>thebalancelab.es ↗</a
+										>
+									</div>
+								</div>
+							</li>
+
+							<li
+								style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px"
+							>
+								<span
+									aria-hidden="true"
+									style="
+										width: 15px;
+										height: 15px;
+										border-radius: 999px;
+										background: #173f35;
+										border: 3px solid #ecefe8;
+										box-sizing: border-box;
+										outline: 1px solid #173f35;
+									"
+								></span>
+								<div
+									style="
+										background: #ffffff;
+										border: 1px solid #d3dad2;
+										border-radius: 20px;
+										padding: 28px;
+										display: flex;
+										flex-direction: column;
+										gap: 12px;
+										min-height: 340px;
+										box-sizing: border-box;
+									"
+								>
+									<span
+										style="
+											font-size: 13px;
+											color: #4a5a53;
+											letter-spacing: 0.06em;
+											text-transform: uppercase;
+										"
+										>01/2025 – 06/2025</span
+									>
+									<h3
+										style="
+											margin: 0;
+											font-family: 'Space Grotesk', sans-serif;
+											font-size: 28px;
+											font-weight: 700;
+											letter-spacing: -0.02em;
+											line-height: 1.1;
+										"
+									>
+										MELIT
+									</h3>
+									<p style="margin: 0; font-size: 14px; font-weight: 600; color: #173f35">
+										Junior Full Stack · Prácticas
+									</p>
+									<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #2e3f38">
+										Formación en JHipster (Spring Boot y Angular). App de alquiler de coches con
+										gestión de vehículos y usuarios, y front-end de un portal inmobiliario.
+									</p>
+									<div
+										style="
+											margin-top: auto;
+											display: flex;
+											flex-wrap: wrap;
+											align-items: center;
+											justify-content: space-between;
+											gap: 8px;
+										"
+									>
+										<span
+											style="
+												padding: 5px 12px;
+												border-radius: 999px;
+												background: #e2e8e0;
+												font-size: 13px;
+												color: #11201b;
+											"
+											>Angular / Spring Boot</span
+										>
+										<a
+											href="#"
+											style="
+												font-size: 14px;
+												font-weight: 600;
+												text-decoration: none;
+												padding: 10px 0;
+											"
+											>Empresa ↗</a
+										>
+									</div>
+								</div>
+							</li>
+
+							<li
+								style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px"
+							>
+								<span
+									aria-hidden="true"
+									style="
+										width: 15px;
+										height: 15px;
+										border-radius: 999px;
+										background: #ecefe8;
+										border: 3px solid #ecefe8;
+										box-sizing: border-box;
+										outline: 1px solid #173f35;
+									"
+								></span>
+								<div
+									style="
+										background: #ffffff;
+										border: 1px solid #d3dad2;
+										border-radius: 20px;
+										padding: 28px;
+										display: flex;
+										flex-direction: column;
+										gap: 12px;
+										min-height: 340px;
+										box-sizing: border-box;
+									"
+								>
+									<span
+										style="
+											font-size: 13px;
+											color: #4a5a53;
+											letter-spacing: 0.06em;
+											text-transform: uppercase;
+										"
+										>Proyecto</span
+									>
+									<h3
+										style="
+											margin: 0;
+											font-family: 'Space Grotesk', sans-serif;
+											font-size: 28px;
+											font-weight: 700;
+											letter-spacing: -0.02em;
+											line-height: 1.1;
+										"
+									>
+										Send Invoice
+									</h3>
+									<p style="margin: 0; font-size: 14px; font-weight: 600; color: #173f35">
+										Proyecto personal
+									</p>
+									<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #2e3f38">
+										App web para crear, gestionar y emitir facturas digitales en PDF.
+									</p>
+									<div
+										style="
+											margin-top: auto;
+											display: flex;
+											flex-wrap: wrap;
+											align-items: center;
+											justify-content: space-between;
+											gap: 8px;
+										"
+									>
+										<span
+											style="
+												padding: 5px 12px;
+												border-radius: 999px;
+												background: #e2e8e0;
+												font-size: 13px;
+												color: #11201b;
+											"
+											>TypeScript · React · PostgreSQL</span
+										>
+										<a
+											href="https://github.com/Jorgealvarezpb7/SendInvoice"
+											style="
+												font-size: 14px;
+												font-weight: 600;
+												text-decoration: none;
+												padding: 10px 0;
+											"
+											>GitHub ↗</a
+										>
+									</div>
+								</div>
+							</li>
+
+							<li
+								style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px"
+							>
+								<span
+									aria-hidden="true"
+									style="
+										width: 15px;
+										height: 15px;
+										border-radius: 999px;
+										background: #ecefe8;
+										border: 3px solid #ecefe8;
+										box-sizing: border-box;
+										outline: 1px solid #173f35;
+									"
+								></span>
+								<div
+									style="
+										background: #ffffff;
+										border: 1px solid #d3dad2;
+										border-radius: 20px;
+										padding: 28px;
+										display: flex;
+										flex-direction: column;
+										gap: 12px;
+										min-height: 340px;
+										box-sizing: border-box;
+									"
+								>
+									<span
+										style="
+											font-size: 13px;
+											color: #4a5a53;
+											letter-spacing: 0.06em;
+											text-transform: uppercase;
+										"
+										>Proyecto</span
+									>
+									<h3
+										style="
+											margin: 0;
+											font-family: 'Space Grotesk', sans-serif;
+											font-size: 28px;
+											font-weight: 700;
+											letter-spacing: -0.02em;
+											line-height: 1.1;
+										"
+									>
+										CRM Puntos y Descuentos
+									</h3>
+									<p style="margin: 0; font-size: 14px; font-weight: 600; color: #173f35">
+										Proyecto personal
+									</p>
+									<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #2e3f38">
+										Gestión de fidelización: las empresas administran puntos de clientes y los
+										convierten en descuentos. Módulos de clientes, inventario y ventas.
+									</p>
+									<div
+										style="
+											margin-top: auto;
+											display: flex;
+											flex-wrap: wrap;
+											align-items: center;
+											justify-content: space-between;
+											gap: 8px;
+										"
+									>
+										<span
+											style="
+												padding: 5px 12px;
+												border-radius: 999px;
+												background: #e2e8e0;
+												font-size: 13px;
+												color: #11201b;
+											"
+											>Java · JavaFX · SQLite</span
+										>
+										<a
+											href="https://github.com/Jorgealvarezpb7/Client-Rewards"
+											style="
+												font-size: 14px;
+												font-weight: 600;
+												text-decoration: none;
+												padding: 10px 0;
+											"
+											>GitHub ↗</a
+										>
+									</div>
+								</div>
+							</li>
+
+							<li
+								style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px"
+							>
+								<span
+									aria-hidden="true"
+									style="
+										width: 15px;
+										height: 15px;
+										border-radius: 999px;
+										background: #ecefe8;
+										border: 3px solid #ecefe8;
+										box-sizing: border-box;
+										outline: 1px solid #173f35;
+									"
+								></span>
+								<div
+									style="
+										background: #ffffff;
+										border: 1px solid #d3dad2;
+										border-radius: 20px;
+										padding: 28px;
+										display: flex;
+										flex-direction: column;
+										gap: 12px;
+										min-height: 340px;
+										box-sizing: border-box;
+									"
+								>
+									<span
+										style="
+											font-size: 13px;
+											color: #4a5a53;
+											letter-spacing: 0.06em;
+											text-transform: uppercase;
+										"
+										>Proyecto</span
+									>
+									<h3
+										style="
+											margin: 0;
+											font-family: 'Space Grotesk', sans-serif;
+											font-size: 28px;
+											font-weight: 700;
+											letter-spacing: -0.02em;
+											line-height: 1.1;
+										"
+									>
+										Rent A Car
+									</h3>
+									<p style="margin: 0; font-size: 14px; font-weight: 600; color: #173f35">
+										Proyecto personal
+									</p>
+									<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #2e3f38">
+										Alquiler de vehículos con filtros por categoría y características, reservas
+										online y pago seguro.
+									</p>
+									<div
+										style="
+											margin-top: auto;
+											display: flex;
+											flex-wrap: wrap;
+											align-items: center;
+											justify-content: space-between;
+											gap: 8px;
+										"
+									>
+										<span
+											style="
+												padding: 5px 12px;
+												border-radius: 999px;
+												background: #e2e8e0;
+												font-size: 13px;
+												color: #11201b;
+											"
+											>JHipster · Angular · Spring Boot</span
+										>
+										<a
+											href="https://github.com/Jorgealvarezpb7/RentACar"
+											style="
+												font-size: 14px;
+												font-weight: 600;
+												text-decoration: none;
+												padding: 10px 0;
+											"
+											>GitHub ↗</a
+										>
+									</div>
+								</div>
+							</li>
+						</ol>
+					</div>
+				</section>
+
+				<!-- 04 · Formación -->
+				<section
+					class="panel"
+					id="formation"
+					aria-label="Formación"
+					style="
+						padding: 64px;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						gap: 48px;
+						background: #e2e8e0;
+					"
+				>
+					<div
+						style="
+							display: flex;
+							align-items: baseline;
+							gap: 16px;
+							font-family: 'Space Grotesk', sans-serif;
+						"
+					>
+						<span style="font-size: 15px; color: #173f35; font-weight: 700">04</span>
+						<h2
+							style="
+								margin: 0;
+								font-size: 15px;
+								font-weight: 500;
+								letter-spacing: 0.12em;
+								text-transform: uppercase;
+								color: #4a5a53;
+							"
+						>
+							Formación
+						</h2>
+					</div>
+					<div style="display: flex; flex-wrap: wrap; gap: 64px">
+						<div style="flex: 3 1 480px; min-width: 0; display: flex; flex-direction: column">
+							<h3 style="margin: 0 0 8px; font-size: 14px; font-weight: 600; color: #4a5a53">
+								Títulos
+							</h3>
+							<div
+								style="
+									padding: 28px 0;
+									border-top: 1px solid #b9c4ba;
+									display: flex;
+									flex-wrap: wrap;
+									justify-content: space-between;
+									gap: 16px;
+								"
+							>
+								<div style="display: flex; flex-direction: column; gap: 6px">
+									<p
+										style="
+											margin: 0;
+											font-family: 'Space Grotesk', sans-serif;
+											font-size: 32px;
+											font-weight: 500;
+											letter-spacing: -0.02em;
+											line-height: 1.15;
+										"
+									>
+										Grado Superior en Desarrollo<br />de Aplicaciones Web
+									</p>
+									<p style="margin: 0; font-size: 15px; color: #4a5a53">
+										UNIVERSAE · Madrid, España
+									</p>
+								</div>
+								<span style="font-size: 15px; color: #2e3f38">02/2024 – 02/2026</span>
+							</div>
+							<div
+								style="
+									padding: 28px 0;
+									border-top: 1px solid #b9c4ba;
+									border-bottom: 1px solid #b9c4ba;
+									display: flex;
+									flex-wrap: wrap;
+									justify-content: space-between;
+									gap: 16px;
+								"
+							>
+								<div style="display: flex; flex-direction: column; gap: 6px">
+									<p
+										style="
+											margin: 0;
+											font-family: 'Space Grotesk', sans-serif;
+											font-size: 32px;
+											font-weight: 500;
+											letter-spacing: -0.02em;
+											line-height: 1.15;
+										"
+									>
+										Grado Superior en Desarrollo<br />de Aplicaciones Multiplataforma
+									</p>
+									<p style="margin: 0; font-size: 15px; color: #4a5a53">
+										UNIVERSAE · Madrid, España
+									</p>
+								</div>
+								<span style="font-size: 15px; color: #2e3f38">02/2024 – 06/2025</span>
+							</div>
+						</div>
+						<div
+							style="
+								flex: 2 1 320px;
+								min-width: 0;
+								display: flex;
+								flex-direction: column;
+								gap: 16px;
+							"
+						>
+							<h3 style="margin: 0 0 8px; font-size: 14px; font-weight: 600; color: #4a5a53">
+								Lecturas
+							</h3>
+							<div
+								style="
+									background: #173f35;
+									color: #ecefe8;
+									border-radius: 20px;
+									padding: 28px;
+									display: flex;
+									flex-direction: column;
+									gap: 8px;
+								"
+							>
+								<p
+									style="
+										margin: 0;
+										font-family: 'Instrument Serif', serif;
+										font-style: italic;
+										font-size: 34px;
+										line-height: 1.1;
+									"
+								>
+									Head First Java
+								</p>
+								<p style="margin: 0; font-size: 14px; color: #a9bdb4">
+									3.ª edición · Kathy Sierra, Bert Bates y Trisha Gee · O'Reilly
+								</p>
+							</div>
+							<div
+								style="
+									background: #ffffff;
+									border: 1px solid #c4cdc3;
+									border-radius: 20px;
+									padding: 28px;
+									display: flex;
+									flex-direction: column;
+									gap: 8px;
+								"
+							>
+								<p
+									style="
+										margin: 0;
+										font-family: 'Instrument Serif', serif;
+										font-style: italic;
+										font-size: 34px;
+										line-height: 1.1;
+										color: #173f35;
+									"
+								>
+									Programming TypeScript
+								</p>
+								<p style="margin: 0; font-size: 14px; color: #4a5a53">Boris Cherny · O'Reilly</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 05 · Contacto -->
+				<section
+					class="panel"
+					id="contact"
+					aria-label="Contacto"
+					style="
+						padding: 64px;
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+						gap: 40px;
+					"
+				>
+					<div
+						style="
+							display: flex;
+							align-items: baseline;
+							gap: 16px;
+							font-family: 'Space Grotesk', sans-serif;
+						"
+					>
+						<span style="font-size: 15px; color: #173f35; font-weight: 700">05</span>
+						<h2
+							style="
+								margin: 0;
+								font-size: 15px;
+								font-weight: 500;
+								letter-spacing: 0.12em;
+								text-transform: uppercase;
+								color: #4a5a53;
+							"
+						>
+							Contacto
+						</h2>
+					</div>
+					<p
+						class="contact-title"
+						style="
+							margin: 0;
+							font-family: 'Space Grotesk', sans-serif;
+							font-size: 120px;
+							font-weight: 700;
+							line-height: 0.92;
+							letter-spacing: -0.05em;
+						"
+					>
+						Escríbeme<br /><span
+							style="
+								font-family: 'Instrument Serif', serif;
+								font-style: italic;
+								font-weight: 400;
+								letter-spacing: -0.02em;
+								color: #173f35;
+							"
+							>o sigue mis redes</span
+						>
+					</p>
+					<div style="display: flex; flex-wrap: wrap; gap: 12px">
+						<a
+							class="biglink"
+							href="https://linkedin.com/in/jorgealvarezpb7"
+							style="
+								flex: 1 1 240px;
+								display: flex;
+								align-items: center;
+								justify-content: space-between;
+								padding: 24px 28px;
+								border: 1px solid #11201b;
+								border-radius: 999px;
+								text-decoration: none;
+								color: #11201b;
+								font-family: 'Space Grotesk', sans-serif;
+								font-size: 24px;
+								font-weight: 500;
+								transition: background 150ms;
+							"
+							>LinkedIn <span aria-hidden="true">↗</span></a
+						>
+						<a
+							class="biglink"
+							href="https://github.com/jorgealvarezpb7"
+							style="
+								flex: 1 1 240px;
+								display: flex;
+								align-items: center;
+								justify-content: space-between;
+								padding: 24px 28px;
+								border: 1px solid #11201b;
+								border-radius: 999px;
+								text-decoration: none;
+								color: #11201b;
+								font-family: 'Space Grotesk', sans-serif;
+								font-size: 24px;
+								font-weight: 500;
+								transition: background 150ms;
+							"
+							>GitHub <span aria-hidden="true">↗</span></a
+						>
+						<a
+							class="biglink"
+							href="mailto:[TU EMAIL]"
+							style="
+								flex: 1 1 240px;
+								display: flex;
+								align-items: center;
+								justify-content: space-between;
+								padding: 24px 28px;
+								border: 1px solid #11201b;
+								border-radius: 999px;
+								text-decoration: none;
+								color: #11201b;
+								font-family: 'Space Grotesk', sans-serif;
+								font-size: 24px;
+								font-weight: 500;
+								transition: background 150ms;
+							"
+							>E-mail <span aria-hidden="true">↗</span></a
+						>
+					</div>
+					<footer
+						style="
+							display: flex;
+							flex-wrap: wrap;
+							justify-content: space-between;
+							gap: 12px;
+							padding-top: 24px;
+							border-top: 1px solid #d3dad2;
+							font-size: 14px;
+							color: #4a5a53;
+						"
+					>
+						<span>Madrid, España</span>
+						<span>©2026 | Jorge Alvarez</span>
+						<button
+							class="navbtn"
+							data-go="0"
+							style="color: #173f35; font-weight: 600; padding: 0; min-height: 0"
+						>
+							Volver al inicio ←
+						</button>
+					</footer>
+				</section>
+			</main>
+		</div>
+
+		<script>
+			(() => {
+				const track = document.getElementById('track');
+				const panels = () => [...track.querySelectorAll('.panel')];
+				const navBtns = [...document.querySelectorAll('nav [data-go]')];
+				const counter = document.getElementById('counter');
+				const progress = document.getElementById('progress');
+				const pad = (n) => String(n).padStart(2, '0');
+				let active = 0;
+				const horizontal = () => getComputedStyle(track).flexDirection === 'row';
+				function goTo(i) {
+					const ps = panels();
+					const t = ps[Math.max(0, Math.min(ps.length - 1, i))];
+					if (!t) return;
+					if (horizontal()) track.scrollTo({ left: t.offsetLeft, behavior: 'smooth' });
+					else t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				}
+				function update() {
+					const max = track.scrollWidth - track.clientWidth;
+					progress.style.width = (max > 0 ? (track.scrollLeft / max) * 100 : 0).toFixed(2) + '%';
+					const mid = track.scrollLeft + track.clientWidth / 2;
+					active = 0;
+					panels().forEach((p, i) => {
+						if (p.offsetLeft <= mid) active = i;
+					});
+					counter.textContent = pad(active) + ' / ' + pad(panels().length - 1);
+					navBtns.forEach((b) => {
+						const on = +b.dataset.go === active;
+						b.style.color = on ? '#173F35' : '#4A5A53';
+						b.style.fontWeight = on ? '600' : '400';
+					});
+				}
+				track.addEventListener(
+					'wheel',
+					(e) => {
+						if (!horizontal() || Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+						const max = track.scrollWidth - track.clientWidth;
+						if (
+							(track.scrollLeft <= 0 && e.deltaY < 0) ||
+							(track.scrollLeft >= max - 1 && e.deltaY > 0)
+						)
+							return;
+						e.preventDefault();
+						track.scrollLeft += e.deltaY;
+					},
+					{ passive: false }
+				);
+				track.addEventListener('scroll', update, { passive: true });
+				document
+					.querySelectorAll('[data-go]')
+					.forEach((b) => b.addEventListener('click', () => goTo(+b.dataset.go)));
+				document
+					.querySelectorAll('[data-next]')
+					.forEach((b) => b.addEventListener('click', () => goTo(active + 1)));
+				document
+					.querySelectorAll('[data-prev]')
+					.forEach((b) => b.addEventListener('click', () => goTo(active - 1)));
+				update();
+			})();
+		</script>
+	</body>
+</html>

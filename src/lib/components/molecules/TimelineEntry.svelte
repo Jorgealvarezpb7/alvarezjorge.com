@@ -1,46 +1,55 @@
 <script lang="ts">
-	import Icon from '$lib/components/atoms/Icon.svelte';
-
 	let {
+		kind,
 		period,
 		title,
-		href,
+		role,
 		description,
-		tags = []
+		tag,
+		href,
+		linkLabel
 	}: {
+		/** Work entries get a filled marker, personal projects an outlined one. */
+		kind: 'work' | 'project';
 		period: string;
 		title: string;
-		href?: string;
+		role: string;
 		description: string;
-		tags?: string[];
+		tag: string;
+		href?: string;
+		linkLabel?: string;
 	} = $props();
 </script>
 
-<div class="grid gap-2 border-b border-border py-8 last:border-none sm:grid-cols-[180px_1fr]">
-	<span class="text-sm font-semibold text-accent">{period}</span>
-	<div>
-		{#if href}
-			<a
-				{href}
-				target="_blank"
-				rel="noreferrer"
-				class="inline-flex items-center gap-1.5 text-lg font-bold text-foreground hover:text-accent"
-			>
-				{title}
-				<Icon name="arrow-up-right" class="h-4 w-4" />
-			</a>
-		{:else}
-			<span class="text-lg font-bold text-foreground">{title}</span>
-		{/if}
-		<p class="mt-3 max-w-2xl text-muted-foreground">{description}</p>
-		{#if tags.length}
-			<ul class="mt-3 flex flex-wrap gap-2">
-				{#each tags as tag (tag)}
-					<li class="rounded-full border border-border px-3 py-1 text-xs text-foreground">
-						{tag}
-					</li>
-				{/each}
-			</ul>
-		{/if}
+<li class="flex min-w-0 flex-col gap-5 md:flex-1 md:basis-0">
+	<span
+		aria-hidden="true"
+		class="size-[15px] rounded-full border-[3px] border-background outline outline-1 outline-accent {kind ===
+		'work'
+			? 'bg-accent'
+			: 'bg-background'}"
+	></span>
+	<div class="flex min-h-[340px] flex-col gap-3 rounded-[20px] border border-border bg-surface p-7">
+		<span class="text-[13px] tracking-[0.06em] text-muted-foreground uppercase">{period}</span>
+		<h3 class="m-0 font-display text-[28px] leading-[1.1] font-bold tracking-[-0.02em]">
+			{title}
+		</h3>
+		<p class="m-0 text-sm font-semibold text-accent">{role}</p>
+		<p class="m-0 text-[15px] leading-[1.55] text-foreground-soft">{description}</p>
+		<div class="mt-auto flex flex-wrap items-center justify-between gap-2">
+			<span class="rounded-full bg-surface-muted px-3 py-[5px] text-[13px] text-foreground">
+				{tag}
+			</span>
+			{#if href}
+				<a
+					{href}
+					target="_blank"
+					rel="external noreferrer"
+					class="py-2.5 text-sm font-semibold text-accent hover:text-accent-hover"
+				>
+					{linkLabel ?? 'Ver'} ↗
+				</a>
+			{/if}
+		</div>
 	</div>
-</div>
+</li>

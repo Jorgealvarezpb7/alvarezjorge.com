@@ -1,25 +1,21 @@
 <script lang="ts">
-	import photo from '$lib/assets/profilepic.png';
+	import { resolve } from '$app/paths';
 
-	let { name = 'Jorge' }: { name?: string } = $props();
-
-	let dialog: HTMLDialogElement;
+	let {
+		inPage = true,
+		onclick
+	}: {
+		/** On the home page the logo jumps to the hero; elsewhere it links to the home page. */
+		inPage?: boolean;
+		onclick?: (event: MouseEvent) => void;
+	} = $props();
 </script>
 
-<button
-	type="button"
-	class="cursor-pointer rounded-full"
-	aria-label={name}
-	onclick={() => dialog.showModal()}
+<a
+	href={inPage ? '#hero' : resolve('/')}
+	{onclick}
+	aria-label="Ir al inicio"
+	class="inline-flex min-h-11 items-center px-1 py-3 font-display text-[22px] font-bold tracking-[-0.02em] text-foreground transition-opacity hover:opacity-70"
 >
-	<img src={photo} alt={name} class="size-14 rounded-full object-cover" />
-</button>
-
-<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
-<dialog
-	bind:this={dialog}
-	class="m-auto rounded-2xl bg-transparent p-0 backdrop:bg-black/70 backdrop:backdrop-blur-sm"
-	onclick={(e) => e.target === dialog && dialog.close()}
->
-	<img src={photo} alt={name} class="size-72 rounded-2xl object-cover sm:size-96" />
-</dialog>
+	JA<span class="text-accent">.</span>
+</a>
