@@ -1,12 +1,25 @@
 <script lang="ts">
-	let { href, label, active = false }: { href: string; label: string; active?: boolean } = $props();
+	let {
+		id,
+		label,
+		active = false,
+		onclick
+	}: {
+		/** Id of the in-page section this link jumps to. */
+		id: string;
+		label: string;
+		active?: boolean;
+		onclick?: (event: MouseEvent) => void;
+	} = $props();
 </script>
 
 <a
-	{href}
-	class="border-b-2 pb-1 text-sm font-medium transition-colors {active
-		? 'border-accent text-foreground'
-		: 'border-transparent text-muted-foreground hover:text-foreground'}"
+	href="#{id}"
+	{onclick}
+	aria-current={active ? 'location' : undefined}
+	class="inline-flex min-h-11 items-center px-1 py-3 text-[15px] transition-opacity hover:opacity-70 {active
+		? 'font-semibold text-accent'
+		: 'font-normal text-muted-foreground'}"
 >
 	{label}
 </a>

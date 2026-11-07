@@ -7,3 +7,9 @@ bun.lockb
 
 # Miscellaneous
 /static/
+
+# Generated code
+/src/lib/paraglide/
+
+# Tool-managed files (Claude Code commands, skills and local settings)
+/.claude/

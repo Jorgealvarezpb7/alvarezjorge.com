@@ -2,56 +2,86 @@
 	import SectionHeading from '$lib/components/atoms/SectionHeading.svelte';
 	import TimelineEntry from '$lib/components/molecules/TimelineEntry.svelte';
 
-	const entries = [
+	type Entry = {
+		kind: 'work' | 'project';
+		period: string;
+		title: string;
+		role: string;
+		description: string;
+		tag: string;
+		href?: string;
+		linkLabel?: string;
+	};
+
+	const entries: Entry[] = [
 		{
-			period: '11/2025 - Actualidad',
-			title: 'Full Stack Whizzes',
+			kind: 'work',
+			period: '11/2025 – actualidad',
+			title: 'Whizzes',
+			role: 'Full Stack',
+			description:
+				'Desarrollo y personalización de tiendas Shopify para thebalancelab.es: adaptación de temas, configuración de la tienda e integraciones orientadas a ventas.',
+			tag: 'Shopify / Hydrogen',
 			href: 'https://thebalancelab.es/',
-			description:
-				'Desarrollo y personalización de e-commerce en Shopify para thebalancelab.es, incluyendo adaptación de temas, configuración de la tienda online e integración de funcionalidades comerciales orientadas a la venta.',
-			tags: ['Shopify/Hydrogen']
+			linkLabel: 'thebalancelab.es'
 		},
 		{
-			period: '01/2025 - 06/2025',
-			title: 'Junior Full Stack MELIT',
+			kind: 'work',
+			period: '01/2025 – 06/2025',
+			title: 'MELIT',
+			role: 'Junior Full Stack · Prácticas',
 			description:
-				'Durante mis prácticas empresariales, recibí una capacitación en JHipster, una herramienta que combina Spring Boot y Angular para el desarrollo full-stack de aplicaciones web. Participé en el desarrollo de una aplicación para la renta de coches, enfocada en la gestión vehículos y usuarios. Asi mismo ayude en el desarrollo de front-end en un proyecto para captar y vender pisos de una inmobiliaria.',
-			tags: ['Angular/Spring Boot']
+				'Formación en JHipster (Spring Boot y Angular). App de alquiler de coches con gestión de vehículos y usuarios, y front-end de un portal inmobiliario.',
+			tag: 'Angular / Spring Boot'
 		},
 		{
+			kind: 'project',
 			period: 'Proyecto',
 			title: 'Send Invoice',
+			role: 'Proyecto personal',
+			description: 'App web para crear, gestionar y emitir facturas digitales en PDF.',
+			tag: 'TypeScript · React · PostgreSQL',
 			href: 'https://github.com/Jorgealvarezpb7/SendInvoice',
-			description:
-				'Aplicacion web de facturación que permite crear, gestionar y emitir facturas digitales de formato PDF.',
-			tags: ['TypeScript', 'React', 'PostgreSQL']
+			linkLabel: 'GitHub'
 		},
 		{
+			kind: 'project',
 			period: 'Proyecto',
 			title: 'CRM Puntos y Descuentos',
-			href: 'https://github.com/Jorgealvarezpb7/Client-Rewards',
+			role: 'Proyecto personal',
 			description:
-				'Aplicación de gestión de fidelizaciones que permite a las empresas administrar puntos de clientes y para convertirlo en descuentos. Incluye módulos de clientes, inventario y ventas, con una interfaz intuitiva.',
-			tags: ['Java', 'JavaFX', 'SQLite']
+				'Gestión de fidelización: las empresas administran puntos de clientes y los convierten en descuentos. Módulos de clientes, inventario y ventas.',
+			tag: 'Java · JavaFX · SQLite',
+			href: 'https://github.com/Jorgealvarezpb7/Client-Rewards',
+			linkLabel: 'GitHub'
 		},
 		{
+			kind: 'project',
 			period: 'Proyecto',
 			title: 'Rent A Car',
-			href: 'https://github.com/Jorgealvarezpb7/RentACar',
+			role: 'Proyecto personal',
 			description:
-				'Aplicación web de alquiler de vehículos que permite a los clientes buscar coches por categorías y características específicas mediante filtros avanzados. Incluye sistema de reservas en línea y procesamiento seguro de pagos.',
-			tags: ['JHipster', 'Angular', 'Spring Boot']
+				'Alquiler de vehículos con filtros por categoría y características, reservas online y pago seguro.',
+			tag: 'JHipster · Angular · Spring Boot',
+			href: 'https://github.com/Jorgealvarezpb7/RentACar',
+			linkLabel: 'GitHub'
 		}
 	];
 </script>
 
-<section id="experience" class="mx-auto max-w-6xl px-6 py-20">
-	<div class="mb-12 text-center">
-		<SectionHeading text="Experiencia" />
-	</div>
-	<div>
-		{#each entries as entry (entry.title)}
-			<TimelineEntry {...entry} />
-		{/each}
+<section
+	id="experience"
+	data-panel
+	aria-label="Experiencia"
+	class="flex panel flex-col justify-center gap-12 p-16 md:w-[max(100%,1640px)] md:basis-auto"
+>
+	<SectionHeading index="03" title="Experiencia" />
+	<div class="relative">
+		<div aria-hidden="true" class="absolute inset-x-0 top-[7px] hidden h-px bg-line md:block"></div>
+		<ol class="relative m-0 flex list-none flex-col gap-6 p-0 md:flex-row">
+			{#each entries as entry (entry.title)}
+				<TimelineEntry {...entry} />
+			{/each}
+		</ol>
 	</div>
 </section>
