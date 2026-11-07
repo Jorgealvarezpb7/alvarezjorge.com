@@ -20,7 +20,7 @@
 	<Container class="wide:flex wide:flex-1 wide:flex-col wide:justify-between wide:gap-10">
 		<SectionHeading index="05" title="Contacto" />
 		<p
-			class="m-0 font-display text-[56px] leading-[0.92] font-bold tracking-[-0.05em] md:text-[120px]"
+			class="m-0 font-display text-[56px] leading-[0.92] font-bold tracking-[-0.05em] text-foreground md:text-[120px]"
 		>
 			Escríbeme<br /><span class="font-serif font-normal tracking-[-0.02em] text-accent italic"
 				>o sigue mis redes</span

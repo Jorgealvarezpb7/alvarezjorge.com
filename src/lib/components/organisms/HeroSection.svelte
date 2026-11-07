@@ -25,7 +25,7 @@
 			</span>
 			<p class="m-0 font-serif text-[64px] leading-none text-accent italic">Hola, soy</p>
 			<h1
-				class="m-0 font-display text-[84px] leading-[0.86] font-bold tracking-[-0.05em] uppercase md:text-[168px] wide:text-[clamp(72px,10.5vw,168px)]"
+				class="m-0 font-display text-[84px] leading-[0.86] font-bold tracking-[-0.05em] text-foreground uppercase md:text-[168px] wide:text-[clamp(72px,10.5vw,168px)]"
 			>
 				Jorge<br />Alvarez
 			</h1>
