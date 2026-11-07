@@ -1,12 +1,12 @@
 <script lang="ts">
 	import './layout.css';
-	import favicon from '$lib/assets/favicon-circle.png';
+	import favicon from '$lib/assets/favicon.png';
 
 	let { children } = $props();
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 
-<div class="min-h-screen bg-background text-foreground">
+<div class="min">
 	{@render children()}
 </div>

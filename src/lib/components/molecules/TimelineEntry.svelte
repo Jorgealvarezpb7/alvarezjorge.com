@@ -34,10 +34,10 @@
 		<h3 class="m-0 font-display text-[28px] leading-[1.1] font-bold tracking-[-0.02em]">
 			{title}
 		</h3>
-		<p class="m-0 text-sm font-semibold text-accent">{role}</p>
+		<p class="m-0 text-sm font-semibold text-accent-text">{role}</p>
 		<p class="m-0 text-[15px] leading-[1.55] text-foreground-soft">{description}</p>
 		<div class="mt-auto flex flex-wrap items-center justify-between gap-2">
-			<span class="rounded-full bg-surface-muted px-3 py-[5px] text-[13px] text-foreground">
+			<span class="rounded-full bg-tag px-3 py-[5px] text-[13px] text-foreground">
 				{tag}
 			</span>
 			{#if href}
@@ -45,7 +45,7 @@
 					{href}
 					target="_blank"
 					rel="external noreferrer"
-					class="py-2.5 text-sm font-semibold text-accent hover:text-accent-hover"
+					class="py-2.5 text-sm font-semibold text-accent-text hover:text-link-hover"
 				>
 					{linkLabel ?? 'Ver'} ↗
 				</a>

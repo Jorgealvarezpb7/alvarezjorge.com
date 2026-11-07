@@ -18,7 +18,7 @@
 	{onclick}
 	aria-current={active ? 'location' : undefined}
 	class="inline-flex min-h-11 items-center px-1 py-3 text-[15px] transition-opacity hover:opacity-70 {active
-		? 'font-semibold text-accent'
+		? 'font-semibold text-accent-text'
 		: 'font-normal text-muted-foreground'}"
 >
 	{label}

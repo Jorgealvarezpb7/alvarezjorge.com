@@ -19,7 +19,7 @@
 					aria-current={activeId === section.id ? 'location' : undefined}
 					class="flex min-h-11 items-center justify-between py-4 font-display text-3xl font-medium tracking-[-0.02em] {activeId ===
 					section.id
-						? 'text-accent'
+						? 'text-accent-text'
 						: 'text-foreground'}"
 				>
 					{section.label}

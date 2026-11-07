@@ -73,7 +73,7 @@
 	id="experience"
 	data-panel
 	aria-label="Experiencia"
-	class="flex panel flex-col justify-center gap-12 p-16 md:w-[max(100%,1640px)] md:basis-auto"
+	class="flex panel flex-col justify-center gap-12 p-16 md:w-[max(min(100%,var(--panel-max)),1640px)] md:basis-auto wide:px-(--container-pad)"
 >
 	<SectionHeading index="03" title="Experiencia" />
 	<div class="relative">
