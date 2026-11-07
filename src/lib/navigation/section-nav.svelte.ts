@@ -86,7 +86,7 @@ export class SectionNav {
 		if (writeHash) this.#writeHash();
 
 		if (this.horizontal && this.#track) {
-			this.#track.scrollTo({ left: panel.offsetLeft, behavior });
+			this.#track.scrollTo({ left: panelScrollLeft(this.#track, panel), behavior });
 		} else {
 			panel.scrollIntoView({ block: 'start', behavior });
 		}
@@ -232,6 +232,18 @@ export class SectionNav {
 		panels.forEach((panel) => observer.observe(panel));
 		return () => observer.disconnect();
 	}
+}
+
+/**
+ * Track scroll position that centers `panel`. A panel wider than the track (the Experiencia
+ * timeline) is instead aligned with where centered panels start: the track's side padding.
+ */
+function panelScrollLeft(track: HTMLElement, panel: HTMLElement): number {
+	const left =
+		panel.offsetWidth > track.clientWidth
+			? panel.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft)
+			: panel.offsetLeft - (track.clientWidth - panel.offsetWidth) / 2;
+	return Math.max(0, Math.min(track.scrollWidth - track.clientWidth, left));
 }
 
 function canScrollVertically(element: HTMLElement, delta: number): boolean {

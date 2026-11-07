@@ -25,7 +25,7 @@
 
 	<main
 		bind:this={track}
-		class="relative no-scrollbar flex flex-col md:min-h-0 md:flex-1 md:flex-row md:overflow-x-auto md:overflow-y-hidden"
+		class="relative no-scrollbar flex flex-col panel-track md:min-h-0 md:flex-1 md:flex-row md:overflow-x-auto md:overflow-y-hidden"
 	>
 		<HeroSection />
 		<AboutSection />

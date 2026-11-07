@@ -14,7 +14,7 @@
 	<a
 		href="#hero"
 		onclick={(event) => nav.handleAnchorClick(event, 'hero')}
-		class="font-semibold text-accent hover:text-accent-hover"
+		class="font-semibold text-accent-text hover:text-link-hover"
 	>
 		Volver al inicio ←
 	</a>

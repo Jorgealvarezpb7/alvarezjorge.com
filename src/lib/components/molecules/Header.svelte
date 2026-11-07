@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Container from '$lib/components/atoms/Container.svelte';
 	import Logo from '$lib/components/atoms/Logo.svelte';
 	import NavLink from '$lib/components/atoms/NavLink.svelte';
 	import MobileMenu from '$lib/components/molecules/MobileMenu.svelte';
@@ -40,56 +41,60 @@
 
 <header bind:this={header} class="sticky top-0 z-20 bg-background md:static">
 	<div
-		class="flex flex-wrap items-center justify-between gap-4 border-b border-border px-12 py-3.5"
+		class="flex flex-wrap items-center justify-between gap-4 border-b border-border px-12 py-3.5 wide:px-0"
 	>
-		<Logo onclick={(event) => nav.handleAnchorClick(event, 'hero')} />
-
-		<nav aria-label="Secciones" class="hidden flex-wrap gap-6 md:flex">
-			{#each navSections as section (section.id)}
-				<NavLink
-					id={section.id}
-					label={section.label}
-					active={nav.activeId === section.id}
-					onclick={(event) => nav.handleAnchorClick(event, section.id)}
-				/>
-			{/each}
-		</nav>
-
-		<div class="hidden items-center gap-3 font-display text-[15px] text-muted-foreground md:flex">
-			<span>{pad(nav.active)} / {pad(nav.last)}</span>
-			<button
-				type="button"
-				aria-label="Sección anterior"
-				onclick={() => nav.prev()}
-				class="flex size-11 cursor-pointer items-center justify-center rounded-full border border-border-strong text-foreground transition-opacity hover:opacity-70"
-			>
-				<ChevronLeft class="size-[18px]" aria-hidden="true" />
-			</button>
-			<button
-				type="button"
-				aria-label="Sección siguiente"
-				onclick={() => nav.next()}
-				class="flex size-11 cursor-pointer items-center justify-center rounded-full bg-accent text-on-accent transition-opacity hover:opacity-70"
-			>
-				<ChevronRight class="size-[18px]" aria-hidden="true" />
-			</button>
-		</div>
-
-		<button
-			bind:this={toggle}
-			type="button"
-			aria-expanded={open}
-			aria-controls={menuId}
-			aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
-			onclick={() => (open = !open)}
-			class="flex size-11 cursor-pointer items-center justify-center rounded-full border border-border-strong text-foreground md:hidden"
+		<Container
+			class="wide:mx-auto wide:flex wide:max-w-(--panel-max) wide:flex-wrap wide:items-center wide:justify-between wide:gap-4"
 		>
-			{#if open}
-				<CloseIcon class="size-5" aria-hidden="true" />
-			{:else}
-				<MenuIcon class="size-5" aria-hidden="true" />
-			{/if}
-		</button>
+			<Logo onclick={(event) => nav.handleAnchorClick(event, 'hero')} />
+
+			<nav aria-label="Secciones" class="hidden flex-wrap gap-6 md:flex">
+				{#each navSections as section (section.id)}
+					<NavLink
+						id={section.id}
+						label={section.label}
+						active={nav.activeId === section.id}
+						onclick={(event) => nav.handleAnchorClick(event, section.id)}
+					/>
+				{/each}
+			</nav>
+
+			<div class="hidden items-center gap-3 font-display text-[15px] text-muted-foreground md:flex">
+				<span>{pad(nav.active)} / {pad(nav.last)}</span>
+				<button
+					type="button"
+					aria-label="Sección anterior"
+					onclick={() => nav.prev()}
+					class="flex size-11 cursor-pointer items-center justify-center rounded-full border border-border-strong text-foreground transition-opacity hover:opacity-70"
+				>
+					<ChevronLeft class="size-[18px]" aria-hidden="true" />
+				</button>
+				<button
+					type="button"
+					aria-label="Sección siguiente"
+					onclick={() => nav.next()}
+					class="flex size-11 cursor-pointer items-center justify-center rounded-full bg-accent text-white transition-opacity hover:opacity-70"
+				>
+					<ChevronRight class="size-[18px]" aria-hidden="true" />
+				</button>
+			</div>
+
+			<button
+				bind:this={toggle}
+				type="button"
+				aria-expanded={open}
+				aria-controls={menuId}
+				aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+				onclick={() => (open = !open)}
+				class="flex size-11 cursor-pointer items-center justify-center rounded-full border border-border-strong text-foreground md:hidden"
+			>
+				{#if open}
+					<CloseIcon class="size-5" aria-hidden="true" />
+				{:else}
+					<MenuIcon class="size-5" aria-hidden="true" />
+				{/if}
+			</button>
+		</Container>
 	</div>
 
 	<div class="hidden h-[3px] bg-border md:block" aria-hidden="true">

@@ -20,7 +20,7 @@
 	<Logo inPage={false} />
 	<a
 		href="{resolve('/')}#projects"
-		class="inline-flex min-h-11 items-center gap-2 px-1 py-3 text-[15px] font-semibold text-accent hover:text-accent-hover"
+		class="inline-flex min-h-11 items-center gap-2 px-1 py-3 text-[15px] font-semibold text-accent-text hover:text-link-hover"
 	>
 		<ArrowLeft class="size-4" aria-hidden="true" />
 		Volver
@@ -28,17 +28,17 @@
 </header>
 
 <main class="mx-auto flex max-w-[1180px] flex-col gap-16 p-16">
-	<section class="flex flex-col gap-6 rounded-3xl bg-accent p-10 text-on-accent md:p-16">
+	<section class="flex flex-col gap-6 rounded-3xl bg-surface-inverse p-10 text-on-inverse md:p-16">
 		<div class="flex flex-wrap items-center justify-between gap-3">
 			<span
 				class="rounded-full px-3.5 py-1.5 text-[13px] font-semibold text-foreground {project.badge ===
 				'highlight'
-					? 'bg-highlight'
-					: 'bg-on-accent'}"
+					? 'bg-accent-on-inverse'
+					: 'bg-surface-muted'}"
 			>
 				{project.category}
 			</span>
-			<span class="text-sm text-on-accent-muted">{project.period}</span>
+			<span class="text-sm text-on-inverse-muted">{project.period}</span>
 		</div>
 		<div class="flex flex-wrap items-center gap-6">
 			{#if project.icon}
@@ -56,8 +56,8 @@
 				{project.title}
 			</h1>
 		</div>
-		<p class="m-0 text-sm tracking-[0.08em] text-on-accent-muted uppercase">{project.role}</p>
-		<p class="m-0 max-w-[720px] text-xl leading-[1.55] text-on-accent-body">{project.summary}</p>
+		<p class="m-0 text-sm tracking-[0.08em] text-on-inverse-muted uppercase">{project.role}</p>
+		<p class="m-0 max-w-[720px] text-xl leading-[1.55] text-on-inverse-body">{project.summary}</p>
 	</section>
 
 	<section class="flex flex-col gap-6">
@@ -80,7 +80,7 @@
 				<li
 					class="flex gap-6 border-t border-line py-6 text-lg leading-[1.55] text-foreground-soft last:border-b"
 				>
-					<span class="shrink-0 font-display font-bold text-accent">
+					<span class="shrink-0 font-display font-bold text-accent-text">
 						{String(i + 1).padStart(2, '0')}
 					</span>
 					{highlight}
@@ -116,7 +116,7 @@
 	>
 		<span>Madrid, España</span>
 		<span>&copy;2026 | Jorge Alvarez</span>
-		<a href="{resolve('/')}#projects" class="font-semibold text-accent hover:text-accent-hover">
+		<a href="{resolve('/')}#projects" class="font-semibold text-accent-text hover:text-link-hover">
 			Volver a proyectos ←
 		</a>
 	</footer>
