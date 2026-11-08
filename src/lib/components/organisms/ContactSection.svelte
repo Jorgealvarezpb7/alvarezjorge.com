@@ -3,27 +3,31 @@
 	import SectionHeading from '$lib/components/atoms/SectionHeading.svelte';
 	import ContactCard from '$lib/components/molecules/ContactCard.svelte';
 	import Footer from '$lib/components/molecules/Footer.svelte';
+	import { i18n } from '$lib/i18n';
 
 	const links = [
 		{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/jorgealvarezpb7/' },
 		{ label: 'GitHub', href: 'https://github.com/jorgealvarezpb7' },
 		{ label: 'E-mail', href: 'mailto:jorgealvarezpb7@gmail.com' }
 	];
+
+	const t = $derived(i18n.t);
 </script>
 
 <section
 	id="contact"
 	data-panel
-	aria-label="Contacto"
+	aria-label={t.sections.contact}
 	class="flex panel flex-col justify-between gap-10 p-16 wide:px-0"
 >
 	<Container class="wide:flex wide:flex-1 wide:flex-col wide:justify-between wide:gap-10">
-		<SectionHeading index="05" title="Contacto" />
+		<SectionHeading index="05" title={t.sections.contact} />
 		<p
 			class="m-0 font-display text-[56px] leading-[0.92] font-bold tracking-[-0.05em] text-foreground md:text-[120px]"
 		>
-			Escríbeme<br /><span class="font-serif font-normal tracking-[-0.02em] text-accent italic"
-				>o sigue mis redes</span
+			{t.contact.titleLine1}<br /><span
+				class="font-serif font-normal tracking-[-0.02em] text-accent italic"
+				>{t.contact.titleLine2}</span
 			>
 		</p>
 		<div class="flex flex-wrap gap-3">

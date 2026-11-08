@@ -42,7 +42,7 @@ The detail page SHALL provide a "Volver" link to `/#projects`. Following it, or 
 #### Scenario: Back from detail on desktop
 
 - **WHEN** a desktop visitor opens Notely's detail from the projects panel and then activates "Volver"
-- **THEN** the home page shows the projects panel with the counter reading `02 / 05`
+- **THEN** the home page shows the projects panel with the "Proyectos" link in its active style
 
 #### Scenario: Browser back
 

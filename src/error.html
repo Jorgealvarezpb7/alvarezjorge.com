@@ -1,0 +1,136 @@
+<!doctype html>
+<!--
+	Last-resort error page: SvelteKit serves it only when the app itself can't render
+	(e.g. +error.svelte crashes). It can't know the locale or load the app's CSS/fonts,
+	so it is bilingual and self-contained, with colors copied from layout.css.
+-->
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex" />
+		<title>Error %sveltekit.status% — Jorge Álvarez</title>
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+		<style>
+			:root {
+				color-scheme: light;
+				--background: #f3f8fb;
+				--foreground: #142b3f;
+				--muted: #4a5f72;
+				--border: #d3e4ee;
+				--accent: #8b5cf6;
+				--accent-text: #6d28d9;
+			}
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				margin: 0;
+				min-height: 100dvh;
+				display: flex;
+				flex-direction: column;
+				background: var(--background);
+				color: var(--foreground);
+				font:
+					16px/1.55 system-ui,
+					sans-serif;
+			}
+			header {
+				padding: 14px 24px;
+				border-bottom: 1px solid var(--border);
+			}
+			.logo {
+				font-size: 22px;
+				font-weight: 700;
+				letter-spacing: -0.02em;
+				color: var(--foreground);
+				text-decoration: none;
+			}
+			.logo span {
+				color: var(--accent);
+			}
+			main {
+				flex: 1;
+				width: 100%;
+				max-width: 1180px;
+				margin: 0 auto;
+				padding: 64px 24px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				gap: 24px;
+			}
+			.status {
+				margin: 0;
+				font-size: clamp(96px, 18vw, 200px);
+				font-weight: 700;
+				line-height: 1;
+				letter-spacing: -0.05em;
+				color: var(--accent);
+			}
+			h1 {
+				margin: 0;
+				font-size: clamp(36px, 6vw, 60px);
+				line-height: 1.1;
+				letter-spacing: -0.03em;
+			}
+			h1 span {
+				display: block;
+				color: var(--muted);
+				font-size: 0.6em;
+				font-weight: 500;
+			}
+			p {
+				margin: 0;
+				max-width: 560px;
+				font-size: 18px;
+				color: var(--muted);
+			}
+			.reason {
+				font-size: 14px;
+			}
+			nav {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px 32px;
+			}
+			nav a {
+				display: inline-flex;
+				align-items: center;
+				min-height: 44px;
+				padding: 12px 4px;
+				font-size: 15px;
+				font-weight: 600;
+				color: var(--accent-text);
+				text-decoration: none;
+			}
+			nav a:hover {
+				color: var(--foreground);
+			}
+			@media (min-width: 768px) {
+				header {
+					padding: 14px 48px;
+				}
+				main {
+					padding: 64px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a class="logo" href="/" aria-label="Ir al inicio">JA<span>.</span></a>
+		</header>
+		<main>
+			<p class="status">%sveltekit.status%</p>
+			<h1>Algo salió mal <span lang="en">Something went wrong</span></h1>
+			<p>Ocurrió un error inesperado. Intenta de nuevo o regresa al inicio.</p>
+			<p lang="en">An unexpected error occurred. Try again or go back to the home page.</p>
+			<p class="reason">%sveltekit.error.message%</p>
+			<nav>
+				<a href="/">Ir al inicio →</a>
+				<a href="/en" lang="en">Go to home page →</a>
+			</nav>
+		</main>
+	</body>
+</html>

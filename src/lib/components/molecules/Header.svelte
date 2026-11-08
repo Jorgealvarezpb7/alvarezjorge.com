@@ -1,9 +1,11 @@
 <script lang="ts">
 	import Container from '$lib/components/atoms/Container.svelte';
+	import LanguageSwitch from '$lib/components/atoms/LanguageSwitch.svelte';
 	import Logo from '$lib/components/atoms/Logo.svelte';
 	import NavLink from '$lib/components/atoms/NavLink.svelte';
 	import MobileMenu from '$lib/components/molecules/MobileMenu.svelte';
 	import { navSections } from '$lib/data/sections';
+	import { i18n } from '$lib/i18n';
 	import { getSectionNav } from '$lib/navigation/section-nav.svelte';
 	import ChevronLeft from '~icons/lucide/chevron-left';
 	import ChevronRight from '~icons/lucide/chevron-right';
@@ -11,9 +13,9 @@
 	import CloseIcon from '~icons/lucide/x';
 
 	const nav = getSectionNav();
+	const t = $derived(i18n.t);
 	const uid = $props.id();
 	const menuId = `${uid}-menu`;
-	const pad = (n: number) => String(n).padStart(2, '0');
 
 	let header: HTMLElement;
 	let toggle: HTMLButtonElement;
@@ -48,11 +50,11 @@
 		>
 			<Logo onclick={(event) => nav.handleAnchorClick(event, 'hero')} />
 
-			<nav aria-label="Secciones" class="hidden flex-wrap gap-6 md:flex">
+			<nav aria-label={t.header.sectionsNav} class="hidden flex-wrap gap-6 md:flex">
 				{#each navSections as section (section.id)}
 					<NavLink
 						id={section.id}
-						label={section.label}
+						label={t.sections[section.id]}
 						active={nav.activeId === section.id}
 						onclick={(event) => nav.handleAnchorClick(event, section.id)}
 					/>
@@ -60,10 +62,10 @@
 			</nav>
 
 			<div class="hidden items-center gap-3 font-display text-[15px] text-muted-foreground md:flex">
-				<span>{pad(nav.active)} / {pad(nav.last)}</span>
+				<LanguageSwitch class="mr-1" />
 				<button
 					type="button"
-					aria-label="Sección anterior"
+					aria-label={t.header.prevSection}
 					onclick={() => nav.prev()}
 					class="flex size-11 cursor-pointer items-center justify-center rounded-full border border-border-strong text-foreground transition-opacity hover:opacity-70"
 				>
@@ -71,7 +73,7 @@
 				</button>
 				<button
 					type="button"
-					aria-label="Sección siguiente"
+					aria-label={t.header.nextSection}
 					onclick={() => nav.next()}
 					class="flex size-11 cursor-pointer items-center justify-center rounded-full bg-accent text-white transition-opacity hover:opacity-70"
 				>
@@ -84,7 +86,7 @@
 				type="button"
 				aria-expanded={open}
 				aria-controls={menuId}
-				aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+				aria-label={open ? t.header.closeMenu : t.header.openMenu}
 				onclick={() => (open = !open)}
 				class="flex size-11 cursor-pointer items-center justify-center rounded-full border border-border-strong text-foreground md:hidden"
 			>

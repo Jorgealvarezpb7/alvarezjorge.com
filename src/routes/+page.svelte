@@ -8,32 +8,37 @@
 	import ContactSection from '$lib/components/organisms/ContactSection.svelte';
 	import { SectionNav, setSectionNav } from '$lib/navigation/section-nav.svelte';
 	import Seo from '$lib/components/atoms/Seo.svelte';
-	import { PERSON_NAME, SAME_AS, SITE_URL, absoluteUrl, jsonLd, seo } from '$lib/seo';
+	import { htmlLang, i18n, locales } from '$lib/i18n';
+	import { OG_IMAGES, PERSON_NAME, SAME_AS, SITE_URL, absoluteUrl, jsonLd } from '$lib/seo';
 
 	const nav = setSectionNav(new SectionNav());
 
-	const structuredData = jsonLd({
-		'@context': 'https://schema.org',
-		'@graph': [
-			{
-				'@type': 'WebSite',
-				'@id': `${SITE_URL}/#website`,
-				name: PERSON_NAME,
-				url: `${SITE_URL}/`,
-				inLanguage: 'es'
-			},
-			{
-				'@type': 'Person',
-				'@id': `${SITE_URL}/#person`,
-				name: PERSON_NAME,
-				jobTitle: seo.es.jobTitle,
-				url: `${SITE_URL}/`,
-				image: absoluteUrl(seo.es.ogImage),
-				address: { '@type': 'PostalAddress', addressLocality: 'Madrid', addressCountry: 'ES' },
-				sameAs: SAME_AS
-			}
-		]
-	});
+	const t = $derived(i18n.t);
+
+	const structuredData = $derived(
+		jsonLd({
+			'@context': 'https://schema.org',
+			'@graph': [
+				{
+					'@type': 'WebSite',
+					'@id': `${SITE_URL}/#website`,
+					name: PERSON_NAME,
+					url: `${SITE_URL}/`,
+					inLanguage: locales.map((l) => htmlLang[l])
+				},
+				{
+					'@type': 'Person',
+					'@id': `${SITE_URL}/#person`,
+					name: PERSON_NAME,
+					jobTitle: t.meta.jobTitle,
+					url: `${SITE_URL}/`,
+					image: absoluteUrl(OG_IMAGES[i18n.locale]),
+					address: { '@type': 'PostalAddress', addressLocality: 'Madrid', addressCountry: 'ES' },
+					sameAs: SAME_AS
+				}
+			]
+		})
+	);
 
 	let track: HTMLElement;
 
@@ -41,7 +46,7 @@
 	$effect(() => nav.attach(track));
 </script>
 
-<Seo title={seo.es.title} description={seo.es.description} path="/" />
+<Seo title={t.meta.title} description={t.meta.description} path="/" />
 
 <svelte:head>
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -- static JSON-LD built from constants -->

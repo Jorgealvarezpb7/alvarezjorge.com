@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { i18n } from '$lib/i18n';
 
 	let {
 		inPage = true,
@@ -12,9 +13,9 @@
 </script>
 
 <a
-	href={inPage ? '#hero' : resolve('/')}
+	href={inPage ? '#hero' : resolve(i18n.path('/'))}
 	{onclick}
-	aria-label="Ir al inicio"
+	aria-label={i18n.t.common.goHome}
 	class="inline-flex min-h-11 items-center px-1 py-3 font-display text-[22px] font-bold tracking-[-0.02em] text-foreground transition-opacity hover:opacity-70"
 >
 	JA<span class="text-accent">.</span>

@@ -1,14 +1,15 @@
 /**
  * Ordered registry of home page sections. Panel ids, header links, the mobile menu,
- * the `NN / NN` counter and hash validation all read from this list.
+ * the previous/next controls and hash validation all read from this list. Labels live in the
+ * i18n dictionaries under `sections.<id>`.
  */
 export const sections = [
-	{ id: 'hero', label: 'Inicio' },
-	{ id: 'about', label: 'Sobre mí' },
-	{ id: 'projects', label: 'Proyectos' },
-	{ id: 'experience', label: 'Experiencia' },
-	{ id: 'formation', label: 'Formación' },
-	{ id: 'contact', label: 'Contacto' }
+	{ id: 'hero' },
+	{ id: 'about' },
+	{ id: 'projects' },
+	{ id: 'experience' },
+	{ id: 'formation' },
+	{ id: 'contact' }
 ] as const;
 
 export type SectionId = (typeof sections)[number]['id'];
