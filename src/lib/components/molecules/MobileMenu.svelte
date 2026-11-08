@@ -1,13 +1,17 @@
 <script lang="ts">
+	import LanguageSwitch from '$lib/components/atoms/LanguageSwitch.svelte';
 	import { navSections } from '$lib/data/sections';
+	import { i18n } from '$lib/i18n';
 
 	let { id, activeId, onnavigate }: { id: string; activeId: string; onnavigate: () => void } =
 		$props();
+
+	const t = $derived(i18n.t);
 </script>
 
 <nav
 	{id}
-	aria-label="Secciones"
+	aria-label={t.header.sectionsNav}
 	class="absolute inset-x-0 top-full border-b border-border bg-background px-12 pb-6 md:hidden"
 >
 	<ul class="flex flex-col">
@@ -22,10 +26,13 @@
 						? 'text-accent-text'
 						: 'text-foreground'}"
 				>
-					{section.label}
+					{t.sections[section.id]}
 					<span aria-hidden="true" class="text-xl text-faint">→</span>
 				</a>
 			</li>
 		{/each}
 	</ul>
+	<LanguageSwitch
+		class="border-t border-border pt-4 font-display text-[15px] text-muted-foreground"
+	/>
 </nav>

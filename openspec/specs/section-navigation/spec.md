@@ -59,13 +59,12 @@ On viewports 768px or wider, a predominantly vertical wheel gesture over the tra
 
 ### Requirement: Header controls on medium and larger viewports
 
-On viewports 768px or wider, the header SHALL show the logo, one link per non-hero section, a counter in the form `NN / NN` (active index / last index, zero-padded), a previous button, a next button, and a progress bar showing how far the track is scrolled. Selecting a section link, the logo, or a button SHALL smoothly scroll the track to the target panel.
+On viewports 768px or wider, the header SHALL show the logo, one link per non-hero section, a language switcher, a previous button, a next button, and a progress bar showing how far the track is scrolled. Selecting a section link, the logo, or a button SHALL smoothly scroll the track to the target panel.
 
-#### Scenario: Counter and active link follow scrolling
+#### Scenario: Active link follows scrolling
 
 - **WHEN** the visitor scrolls the track so the projects panel is past the viewport midpoint
-- **THEN** the counter reads `02 / 05`
-- **AND** the "Proyectos" link is shown in its active style
+- **THEN** the "Proyectos" link is shown in its active style
 
 #### Scenario: Next and previous buttons
 
@@ -96,7 +95,7 @@ On viewports 768px or wider, when focus is not in a text input, ArrowRight and P
 
 ### Requirement: Hamburger menu on small viewports
 
-On viewports narrower than 768px, the header SHALL be sticky and SHALL show the logo and a hamburger button instead of section links, counter, arrows and progress bar. Activating the button SHALL open a drop-down sheet under the header listing every non-hero section.
+On viewports narrower than 768px, the header SHALL be sticky and SHALL show the logo and a hamburger button instead of section links, language switcher, arrows and progress bar. Activating the button SHALL open a drop-down sheet under the header listing every non-hero section.
 
 #### Scenario: Open and navigate
 
@@ -133,7 +132,7 @@ When the home page loads or the hash changes to a known section id, the page SHA
 #### Scenario: Deep link on desktop
 
 - **WHEN** a desktop visitor opens `/#projects`
-- **THEN** the projects panel is shown and the counter reads `02 / 05`
+- **THEN** the projects panel is shown and the "Proyectos" link is in its active style
 
 #### Scenario: Deep link on mobile
 

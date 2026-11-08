@@ -2,6 +2,8 @@
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import Logo from '$lib/components/atoms/Logo.svelte';
+	import { i18n } from '$lib/i18n';
+	import { PERSON_NAME } from '$lib/seo';
 	import ArrowRight from '~icons/lucide/arrow-right';
 
 	/**
@@ -25,21 +27,16 @@
 		return text;
 	}
 
+	const t = $derived(i18n.t);
 	const status = $derived(page.status);
 	const reason = $derived(customReason(status, page.error?.message));
 	const notFound = $derived(status === 404);
 
-	const title = $derived(notFound ? 'Página no encontrada' : (reason ?? 'Algo salió mal'));
-	const text = $derived(
-		notFound
-			? 'La página que buscas no existe o fue movida. Verifica la URL o regresa al inicio.'
-			: reason
-				? null
-				: 'Ocurrió un error inesperado. Intenta de nuevo o regresa al inicio.'
-	);
+	const title = $derived(notFound ? t.error.notFoundTitle : (reason ?? t.error.genericTitle));
+	const text = $derived(notFound ? t.error.notFoundText : reason ? null : t.error.genericText);
 	const reasonLine = $derived(notFound ? reason : null);
 	const documentTitle = $derived(
-		notFound ? 'Página no encontrada — Jorge Alvarez' : `Error ${status} — Jorge Alvarez`
+		`${notFound ? t.error.notFoundTitle : `Error ${status}`} — ${PERSON_NAME}`
 	);
 </script>
 
@@ -74,10 +71,10 @@
 			<p class="m-0 text-sm text-muted-foreground">{reasonLine}</p>
 		{/if}
 		<a
-			href={resolve('/')}
+			href={resolve(i18n.path('/'))}
 			class="inline-flex min-h-11 items-center gap-2 self-start px-1 py-3 text-[15px] font-semibold text-accent-text hover:text-link-hover"
 		>
-			Ir al inicio
+			{t.common.goHome}
 			<ArrowRight class="size-4" aria-hidden="true" />
 		</a>
 	</main>

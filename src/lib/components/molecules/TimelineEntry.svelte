@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { i18n } from '$lib/i18n';
+
 	let {
 		kind,
 		period,
@@ -47,7 +49,7 @@
 					rel="external noreferrer"
 					class="py-2.5 text-sm font-semibold text-accent-text hover:text-link-hover"
 				>
-					{linkLabel ?? 'Ver'} ↗
+					{linkLabel ?? i18n.t.common.view} ↗
 				</a>
 			{/if}
 		</div>

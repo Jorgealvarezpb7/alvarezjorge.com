@@ -1,14 +1,18 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import Chip from '$lib/components/atoms/Chip.svelte';
+	import LanguageSwitch from '$lib/components/atoms/LanguageSwitch.svelte';
 	import Logo from '$lib/components/atoms/Logo.svelte';
 	import ContactCard from '$lib/components/molecules/ContactCard.svelte';
 	import Seo from '$lib/components/atoms/Seo.svelte';
 	import { PERSON_NAME } from '$lib/seo';
+	import { localizeProject } from '$lib/data/projects';
+	import { i18n } from '$lib/i18n';
 	import ArrowLeft from '~icons/lucide/arrow-left';
 
 	let { data } = $props();
-	const project = $derived(data.project);
+	const t = $derived(i18n.t);
+	const project = $derived(localizeProject(data.project, t));
 </script>
 
 <Seo
@@ -22,13 +26,16 @@
 	class="sticky top-0 z-20 flex items-center justify-between gap-4 border-b border-border bg-background px-12 py-3.5"
 >
 	<Logo inPage={false} />
-	<a
-		href="{resolve('/')}#projects"
-		class="inline-flex min-h-11 items-center gap-2 px-1 py-3 text-[15px] font-semibold text-accent-text hover:text-link-hover"
-	>
-		<ArrowLeft class="size-4" aria-hidden="true" />
-		Volver
-	</a>
+	<div class="flex items-center gap-6">
+		<LanguageSwitch class="font-display text-[15px] text-muted-foreground" />
+		<a
+			href="{resolve(i18n.path('/'))}#projects"
+			class="inline-flex min-h-11 items-center gap-2 px-1 py-3 text-[15px] font-semibold text-accent-text hover:text-link-hover"
+		>
+			<ArrowLeft class="size-4" aria-hidden="true" />
+			{t.project.back}
+		</a>
+	</div>
 </header>
 
 <main class="mx-auto flex max-w-[1180px] flex-col gap-16 p-16">
@@ -66,7 +73,7 @@
 
 	<section class="flex flex-col gap-6">
 		<h2 class="m-0 text-[15px] font-medium tracking-[0.12em] text-muted-foreground uppercase">
-			La historia
+			{t.project.story}
 		</h2>
 		<p
 			class="m-0 max-w-[1080px] font-display text-[26px] leading-[1.25] font-medium tracking-[-0.02em] md:text-[36px]"
@@ -77,7 +84,7 @@
 
 	<section class="flex flex-col gap-6">
 		<h2 class="m-0 text-[15px] font-medium tracking-[0.12em] text-muted-foreground uppercase">
-			Lo que hice
+			{t.project.whatIDid}
 		</h2>
 		<ol class="m-0 flex list-none flex-col p-0">
 			{#each project.highlights as highlight, i (highlight)}
@@ -95,7 +102,7 @@
 
 	<section class="flex flex-col gap-4">
 		<h2 class="m-0 text-[15px] font-medium tracking-[0.12em] text-muted-foreground uppercase">
-			Tecnologías
+			{t.common.technologies}
 		</h2>
 		<ul class="m-0 flex list-none flex-wrap gap-2.5 p-0">
 			{#each project.tags as tag (tag)}
@@ -107,10 +114,10 @@
 	{#if project.repo || project.link}
 		<div class="flex flex-wrap gap-3">
 			{#if project.repo}
-				<ContactCard label="Repositorio" href={project.repo} />
+				<ContactCard label={t.project.repository} href={project.repo} />
 			{/if}
 			{#if project.link}
-				<ContactCard label="Visitar sitio" href={project.link} />
+				<ContactCard label={t.project.visitSite} href={project.link} />
 			{/if}
 		</div>
 	{/if}
@@ -118,10 +125,13 @@
 	<footer
 		class="flex flex-wrap justify-between gap-3 border-t border-border pt-6 text-sm text-muted-foreground"
 	>
-		<span>Madrid, España</span>
+		<span>{t.common.location}</span>
 		<span>&copy;2026 | Jorge Alvarez</span>
-		<a href="{resolve('/')}#projects" class="font-semibold text-accent-text hover:text-link-hover">
-			Volver a proyectos ←
+		<a
+			href="{resolve(i18n.path('/'))}#projects"
+			class="font-semibold text-accent-text hover:text-link-hover"
+		>
+			{t.project.backToProjects}
 		</a>
 	</footer>
 </main>

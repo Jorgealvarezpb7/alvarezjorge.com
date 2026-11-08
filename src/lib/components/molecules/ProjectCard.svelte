@@ -2,9 +2,11 @@
 	import { resolve } from '$app/paths';
 	import Icon from '$lib/components/atoms/Icon.svelte';
 	import type { Project } from '$lib/data/projects';
+	import { i18n } from '$lib/i18n';
 	import ArrowRight from '~icons/lucide/arrow-right';
 
 	let { project }: { project: Project } = $props();
+	const t = $derived(i18n.t);
 </script>
 
 <article
@@ -28,10 +30,10 @@
 	<p class="m-0 max-w-[520px] text-lg leading-[1.55] text-on-inverse-body">{project.summary}</p>
 	<div class="mt-auto flex flex-wrap items-center gap-x-8 gap-y-2">
 		<a
-			href={resolve('/proyectos/[slug]', { slug: project.slug })}
+			href={resolve(i18n.path(`/proyectos/${project.slug}`))}
 			class="inline-flex items-center gap-2.5 py-2.5 text-base font-semibold text-accent-on-inverse transition-opacity hover:opacity-80"
 		>
-			Ver detalle
+			{t.projects.viewDetail}
 			<ArrowRight class="size-4" aria-hidden="true" />
 		</a>
 		{#if project.repo}
@@ -41,7 +43,7 @@
 				rel="external noreferrer"
 				class="inline-flex items-center gap-2.5 py-2.5 text-base font-semibold text-accent-on-inverse transition-opacity hover:opacity-80"
 			>
-				Ver en GitHub
+				{t.projects.viewOnGitHub}
 				<Icon name="arrow-up-right" class="size-4" />
 			</a>
 		{/if}

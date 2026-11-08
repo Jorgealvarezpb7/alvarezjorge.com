@@ -2,20 +2,23 @@
 	import Container from '$lib/components/atoms/Container.svelte';
 	import SectionHeading from '$lib/components/atoms/SectionHeading.svelte';
 	import ProjectCard from '$lib/components/molecules/ProjectCard.svelte';
-	import { projects } from '$lib/data/projects';
+	import { localizeProject, projects } from '$lib/data/projects';
+	import { i18n } from '$lib/i18n';
+
+	const t = $derived(i18n.t);
 </script>
 
 <section
 	id="projects"
 	data-panel
-	aria-label="Últimos proyectos"
+	aria-label={t.projects.heading}
 	class="panel-card flex panel flex-col justify-center gap-10 bg-surface-inverse p-16 text-on-inverse wide:px-0"
 >
 	<Container class="wide:flex wide:flex-col wide:gap-10">
-		<SectionHeading index="02" title="Últimos proyectos" tone="dark" />
+		<SectionHeading index="02" title={t.projects.heading} tone="dark" />
 		<div class="grid grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] gap-6">
 			{#each projects as project (project.slug)}
-				<ProjectCard {project} />
+				<ProjectCard project={localizeProject(project, t)} />
 			{/each}
 		</div>
 	</Container>

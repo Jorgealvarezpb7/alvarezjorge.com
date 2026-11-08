@@ -1,6 +1,8 @@
+import type { Locale } from '$lib/i18n/config';
+
 /**
- * Site-wide SEO constants. The site is Spanish-only for now; the `en` entries are kept
- * ready for the upcoming i18n branch (titles, descriptions, OG image, hreflang).
+ * Site-wide SEO constants. Per-locale copy (title, description, job title, OG image alt)
+ * lives in the i18n dictionaries under `meta`.
  */
 export const SITE_URL = 'https://alvarezjorge.com';
 
@@ -11,26 +13,10 @@ export const SAME_AS = [
 	'https://www.linkedin.com/in/jorgealvarezpb7/'
 ];
 
-export const seo = {
-	es: {
-		locale: 'es_ES',
-		jobTitle: 'Desarrollador Full Stack',
-		title: 'Jorge Álvarez — Desarrollador Full Stack',
-		description:
-			'Desarrollador full stack. Construyo software que la gente entiende a la primera: herramientas que conectan los procesos de una empresa y simplifican el día a día.',
-		ogImage: '/ogimages/og-image-es.png',
-		ogImageAlt: 'Jorge Álvarez — Desarrollador Full Stack en Madrid, España'
-	},
-	en: {
-		locale: 'en_US',
-		jobTitle: 'Full Stack Developer',
-		title: 'Jorge Álvarez — Full Stack Developer',
-		description:
-			"Full stack developer. I build software people understand at first glance: tools that connect a company's processes and make everyday work easier, not harder.",
-		ogImage: '/ogimages/og-image-en.png',
-		ogImageAlt: 'Jorge Álvarez — Full Stack Developer in Madrid, Spain'
-	}
-} as const;
+export const OG_IMAGES: Record<Locale, string> = {
+	es: '/ogimages/og-image-es.png',
+	en: '/ogimages/og-image-en.png'
+};
 
 export const OG_IMAGE_SIZE = { width: 1200, height: 630 };
 
