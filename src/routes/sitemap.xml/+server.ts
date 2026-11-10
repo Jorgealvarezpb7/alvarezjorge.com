@@ -1,5 +1,5 @@
 import { projects } from '$lib/data/projects';
-import { htmlLang, locales, localizePath } from '$lib/i18n/config';
+import { defaultLocale, htmlLang, locales, localizePath } from '$lib/i18n/config';
 import { absoluteUrl } from '$lib/seo';
 import type { RequestHandler } from './$types';
 
@@ -10,10 +10,13 @@ export const GET: RequestHandler = () => {
 
 	// One <url> per locale, each listing every language version (Google's hreflang format).
 	const urls = routePaths.flatMap((path) => {
-		const alternates = locales
+		const alternates = [
+			...locales.map((l) => ({ hreflang: htmlLang[l], href: localizePath(path, l) })),
+			{ hreflang: 'x-default', href: localizePath(path, defaultLocale) }
+		]
 			.map(
-				(l) =>
-					`\t\t<xhtml:link rel="alternate" hreflang="${htmlLang[l]}" href="${absoluteUrl(localizePath(path, l))}"/>`
+				({ hreflang, href }) =>
+					`\t\t<xhtml:link rel="alternate" hreflang="${hreflang}" href="${absoluteUrl(href)}"/>`
 			)
 			.join('\n');
 		return locales.map(
