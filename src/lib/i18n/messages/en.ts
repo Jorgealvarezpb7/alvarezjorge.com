@@ -93,6 +93,7 @@ const en: Messages = {
 	},
 	project: {
 		back: 'Back',
+		titleSuffix: "Jorge Álvarez's project",
 		story: 'The story',
 		whatIDid: 'What I did',
 		repository: 'Repository',

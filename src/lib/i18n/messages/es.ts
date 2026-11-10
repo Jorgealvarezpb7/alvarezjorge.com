@@ -95,6 +95,8 @@ const es = {
 	},
 	project: {
 		back: 'Volver',
+		/** Appended to the project name in <title>: `Notely — Proyecto de Jorge Álvarez`. */
+		titleSuffix: 'Proyecto de Jorge Álvarez',
 		story: 'La historia',
 		whatIDid: 'Lo que hice',
 		repository: 'Repositorio',
