@@ -5,22 +5,58 @@
 	import Logo from '$lib/components/atoms/Logo.svelte';
 	import ContactCard from '$lib/components/molecules/ContactCard.svelte';
 	import Seo from '$lib/components/atoms/Seo.svelte';
-	import { PERSON_NAME } from '$lib/seo';
+	import { SITE_URL, absoluteUrl, jsonLd } from '$lib/seo';
 	import { localizeProject } from '$lib/data/projects';
-	import { i18n } from '$lib/i18n';
+	import { htmlLang, i18n } from '$lib/i18n';
 	import ArrowLeft from '~icons/lucide/arrow-left';
 
 	let { data } = $props();
 	const t = $derived(i18n.t);
 	const project = $derived(localizeProject(data.project, t));
+	const pageUrl = $derived(absoluteUrl(i18n.path(`/proyectos/${project.slug}`)));
+
+	// Ties the page to the Person/WebSite nodes the home page declares (same @id).
+	const structuredData = $derived(
+		jsonLd({
+			'@context': 'https://schema.org',
+			'@graph': [
+				{
+					'@type': 'WebPage',
+					'@id': `${pageUrl}#webpage`,
+					url: pageUrl,
+					name: `${project.title} — ${t.project.titleSuffix}`,
+					description: project.summary,
+					inLanguage: htmlLang[i18n.locale],
+					isPartOf: { '@id': `${SITE_URL}/#website` },
+					mainEntity: { '@id': `${pageUrl}#project` }
+				},
+				{
+					'@type': 'CreativeWork',
+					'@id': `${pageUrl}#project`,
+					name: project.title,
+					description: project.summary,
+					inLanguage: htmlLang[i18n.locale],
+					author: { '@id': `${SITE_URL}/#person` },
+					keywords: project.tags.join(', '),
+					...(project.link ? { url: project.link } : {}),
+					...(project.repo ? { codeRepository: project.repo } : {})
+				}
+			]
+		})
+	);
 </script>
 
 <Seo
-	title="{project.title} — {PERSON_NAME}"
+	title="{project.title} — {t.project.titleSuffix}"
 	description={project.summary}
 	path="/proyectos/{project.slug}"
 	type="article"
 />
+
+<svelte:head>
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -- JSON-LD built from project data -->
+	{@html structuredData}
+</svelte:head>
 
 <header
 	class="sticky top-0 z-20 flex items-center justify-between gap-4 border-b border-border bg-background px-12 py-3.5"

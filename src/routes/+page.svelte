@@ -9,7 +9,15 @@
 	import { SectionNav, setSectionNav } from '$lib/navigation/section-nav.svelte';
 	import Seo from '$lib/components/atoms/Seo.svelte';
 	import { htmlLang, i18n, locales } from '$lib/i18n';
-	import { OG_IMAGES, PERSON_NAME, SAME_AS, SITE_URL, absoluteUrl, jsonLd } from '$lib/seo';
+	import {
+		PERSON_ALTERNATE_NAME,
+		PERSON_NAME,
+		PROFILE_PHOTO,
+		SAME_AS,
+		SITE_URL,
+		absoluteUrl,
+		jsonLd
+	} from '$lib/seo';
 
 	const nav = setSectionNav(new SectionNav());
 
@@ -30,9 +38,10 @@
 					'@type': 'Person',
 					'@id': `${SITE_URL}/#person`,
 					name: PERSON_NAME,
+					alternateName: PERSON_ALTERNATE_NAME,
 					jobTitle: t.meta.jobTitle,
 					url: `${SITE_URL}/`,
-					image: absoluteUrl(OG_IMAGES[i18n.locale]),
+					image: absoluteUrl(PROFILE_PHOTO),
 					address: { '@type': 'PostalAddress', addressLocality: 'Madrid', addressCountry: 'ES' },
 					sameAs: SAME_AS
 				}

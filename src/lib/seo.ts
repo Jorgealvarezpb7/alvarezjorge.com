@@ -8,6 +8,12 @@ export const SITE_URL = 'https://alvarezjorge.com';
 
 export const PERSON_NAME = 'Jorge Álvarez';
 
+/** Unaccented spelling people also search for. */
+export const PERSON_ALTERNATE_NAME = 'Jorge Alvarez';
+
+/** Profile photo with a stable URL (copy of `src/lib/assets/profile.webp`) for structured data. */
+export const PROFILE_PHOTO = '/profile.webp';
+
 export const SAME_AS = [
 	'https://github.com/jorgealvarezpb7',
 	'https://www.linkedin.com/in/jorgealvarezpb7/'

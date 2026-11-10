@@ -33,7 +33,7 @@
 			href={resolve(i18n.path(`/proyectos/${project.slug}`))}
 			class="inline-flex items-center gap-2.5 py-2.5 text-base font-semibold text-accent-on-inverse transition-opacity hover:opacity-80"
 		>
-			{t.projects.viewDetail}
+			{t.projects.viewProject(project.title)}
 			<ArrowRight class="size-4" aria-hidden="true" />
 		</a>
 		{#if project.repo}
