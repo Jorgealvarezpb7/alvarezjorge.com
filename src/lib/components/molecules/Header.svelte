@@ -26,7 +26,7 @@
 		if (restoreFocus) toggle.focus();
 	}
 
-	// The sheet only exists below md; close it when the layout switches to the track.
+	// The sheet only exists in the vertical layout; close it when the layout switches to the track.
 	$effect(() => {
 		if (nav.horizontal) open = false;
 	});
@@ -41,16 +41,19 @@
 	}}
 />
 
-<header bind:this={header} class="sticky top-0 z-20 bg-background md:static">
+<header bind:this={header} class="sticky top-0 z-20 bg-background horizontal:static">
 	<div
-		class="flex flex-wrap items-center justify-between gap-4 border-b border-border px-12 py-3.5 wide:px-0"
+		class="flex flex-wrap items-center justify-between gap-4 border-b border-border px-12 py-3.5 wide:px-0 horizontal:short:py-1.5"
 	>
 		<Container
 			class="wide:mx-auto wide:flex wide:max-w-(--panel-max) wide:flex-wrap wide:items-center wide:justify-between wide:gap-4"
 		>
-			<Logo onclick={(event) => nav.handleAnchorClick(event, 'hero')} />
+			<Logo
+				class="horizontal:short:py-0"
+				onclick={(event) => nav.handleAnchorClick(event, 'hero')}
+			/>
 
-			<nav aria-label={t.header.sectionsNav} class="hidden flex-wrap gap-6 md:flex">
+			<nav aria-label={t.header.sectionsNav} class="hidden flex-wrap gap-6 horizontal:flex">
 				{#each navSections as section (section.id)}
 					<NavLink
 						id={section.id}
@@ -61,7 +64,9 @@
 				{/each}
 			</nav>
 
-			<div class="hidden items-center gap-3 font-display text-[15px] text-muted-foreground md:flex">
+			<div
+				class="hidden items-center gap-3 font-display text-[15px] text-muted-foreground horizontal:flex"
+			>
 				<LanguageSwitch class="mr-1" />
 				<button
 					type="button"
@@ -88,7 +93,7 @@
 				aria-controls={menuId}
 				aria-label={open ? t.header.closeMenu : t.header.openMenu}
 				onclick={() => (open = !open)}
-				class="flex size-11 cursor-pointer items-center justify-center rounded-full border border-border-strong text-foreground md:hidden"
+				class="flex size-11 cursor-pointer items-center justify-center rounded-full border border-border-strong text-foreground horizontal:hidden"
 			>
 				{#if open}
 					<CloseIcon class="size-5" aria-hidden="true" />
@@ -99,7 +104,7 @@
 		</Container>
 	</div>
 
-	<div class="hidden h-[3px] bg-border md:block" aria-hidden="true">
+	<div class="hidden h-[3px] bg-border horizontal:block" aria-hidden="true">
 		<div
 			class="h-[3px] bg-accent transition-[width] duration-[120ms] ease-linear"
 			style:width="{(nav.progress * 100).toFixed(2)}%"

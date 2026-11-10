@@ -12,9 +12,9 @@
 	id="projects"
 	data-panel
 	aria-label={t.projects.heading}
-	class="panel-card flex panel flex-col justify-center gap-10 bg-surface-inverse p-16 text-on-inverse wide:px-0"
+	class="panel-card panel flex flex-col justify-center gap-10 bg-surface-inverse p-16 text-on-inverse wide:px-0 horizontal:gap-(--panel-gap) horizontal:py-(--panel-py)"
 >
-	<Container class="wide:flex wide:flex-col wide:gap-10">
+	<Container class="wide:flex wide:flex-col wide:gap-10 horizontal:wide:gap-(--panel-gap)">
 		<SectionHeading index="02" title={t.projects.heading} tone="dark" />
 		<div class="grid grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] gap-6">
 			{#each projects as project (project.slug)}

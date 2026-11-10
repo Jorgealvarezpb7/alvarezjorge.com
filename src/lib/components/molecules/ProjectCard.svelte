@@ -10,7 +10,7 @@
 </script>
 
 <article
-	class="flex min-h-[380px] flex-col gap-5 rounded-3xl bg-surface-inverse-raised p-10 text-on-inverse"
+	class="flex min-h-[380px] flex-col gap-5 rounded-3xl bg-surface-inverse-raised p-10 text-on-inverse horizontal:min-h-[min(380px,48dvh)] horizontal:gap-[clamp(12px,2.5dvh,20px)] horizontal:p-[clamp(24px,5dvh,40px)]"
 >
 	<div class="flex flex-wrap items-center justify-between gap-3">
 		<span
@@ -23,7 +23,9 @@
 		</span>
 		<span class="text-sm text-on-inverse-muted">{project.period}</span>
 	</div>
-	<h3 class="m-0 font-display text-5xl leading-none font-bold tracking-[-0.04em] md:text-[72px]">
+	<h3
+		class="m-0 font-display text-5xl leading-none font-bold tracking-[-0.04em] md:text-[72px] horizontal:text-[clamp(40px,min(5vw,9dvh),72px)]"
+	>
 		{project.title}
 	</h3>
 	<p class="m-0 text-sm tracking-[0.08em] text-on-inverse-muted uppercase">{project.role}</p>

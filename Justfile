@@ -15,16 +15,16 @@ dkc:
 
 # Format all files (auto-fix)
 fmt:
-    bun run format
+    npm run format
 
 # Check formatting and lint rules (no changes)
 lint:
-    bun run lint
+    npm run lint
 
 # Type-check Svelte and TypeScript
 check:
-    bun run check
+    npm run check
 
 # Run everything CI runs: lint, type-check and build
 ci: lint check
-    bun run build
+    npm run build

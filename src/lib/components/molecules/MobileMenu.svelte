@@ -12,7 +12,7 @@
 <nav
 	{id}
 	aria-label={t.header.sectionsNav}
-	class="absolute inset-x-0 top-full border-b border-border bg-background px-12 pb-6 md:hidden"
+	class="absolute inset-x-0 top-full border-b border-border bg-background px-12 pb-6 horizontal:hidden"
 >
 	<ul class="flex flex-col">
 		{#each navSections as section (section.id)}

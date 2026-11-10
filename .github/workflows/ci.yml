@@ -13,20 +13,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Bun
-        uses: oven-sh/setup-bun@v2
+      - name: Install Node
+        uses: actions/setup-node@v4
         with:
-          # Keep in sync with the local bun version that writes bun.lock.
-          bun-version: 1.2.15
+          node-version: 22
+          cache: npm
 
       - name: Install Dependencies
-        run: bun install --frozen-lockfile
+        run: npm ci
 
       - name: Lint
-        run: bun run lint
+        run: npm run lint
 
       - name: Type Check
-        run: bun run check
+        run: npm run check
 
       - name: Build
-        run: bun run build
+        run: npm run build

@@ -51,7 +51,9 @@
 
 	let track: HTMLElement;
 
-	// Re-runs when the md breakpoint is crossed (attach reads `nav.horizontal`).
+	// Mirrors the CSS layout mode into `nav.horizontal` and falls back to vertical if panels overflow.
+	$effect(() => nav.watchLayout(track));
+	// Re-runs when the layout mode changes (attach reads `nav.horizontal`).
 	$effect(() => nav.attach(track));
 </script>
 
@@ -62,12 +64,13 @@
 	{@html structuredData}
 </svelte:head>
 
-<div class="flex flex-col md:h-dvh">
+<div class="flex flex-col horizontal:h-dvh">
 	<Header />
 
 	<main
 		bind:this={track}
-		class="relative no-scrollbar flex flex-col panel-track md:min-h-0 md:flex-1 md:flex-row md:overflow-x-auto md:overflow-y-hidden"
+		data-track
+		class="relative no-scrollbar flex flex-col panel-track horizontal:min-h-0 horizontal:flex-1 horizontal:flex-row horizontal:overflow-x-auto horizontal:overflow-y-hidden"
 	>
 		<HeroSection />
 		<AboutSection />

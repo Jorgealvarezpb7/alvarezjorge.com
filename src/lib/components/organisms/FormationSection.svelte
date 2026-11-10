@@ -38,9 +38,9 @@
 	id="formation"
 	data-panel
 	aria-label={t.sections.formation}
-	class="panel-card flex panel flex-col justify-center gap-12 bg-surface-muted p-16 wide:px-0"
+	class="panel-card panel flex flex-col justify-center gap-12 bg-surface-muted p-16 wide:px-0 horizontal:gap-(--panel-gap) horizontal:py-(--panel-py)"
 >
-	<Container class="wide:flex wide:flex-col wide:gap-12">
+	<Container class="wide:flex wide:flex-col wide:gap-12 horizontal:wide:gap-(--panel-gap)">
 		<SectionHeading index="04" title={t.sections.formation} />
 		<div class="flex flex-wrap gap-16">
 			<div class="flex min-w-0 flex-[3_1_480px] flex-col">

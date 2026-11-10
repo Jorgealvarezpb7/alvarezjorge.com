@@ -13,7 +13,7 @@
 	id="hero"
 	data-panel
 	aria-label={t.sections.hero}
-	class="flex panel flex-wrap items-center gap-12 px-16 py-12 wide:px-0"
+	class="panel flex flex-wrap items-center gap-12 px-16 py-12 wide:px-0 horizontal:py-(--panel-py) horizontal:max-wide:grid horizontal:max-wide:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] horizontal:max-wide:gap-x-[clamp(32px,5vw,80px)]"
 >
 	<Container
 		class="wide:grid wide:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] wide:items-center wide:gap-x-[clamp(32px,5vw,80px)]"
@@ -25,9 +25,13 @@
 				<span aria-hidden="true" class="size-2 rounded-full bg-status"></span>
 				{t.hero.available}
 			</span>
-			<p class="m-0 font-serif text-[64px] leading-none text-accent italic">{t.hero.greeting}</p>
+			<p
+				class="m-0 font-serif text-[64px] leading-none text-accent italic horizontal:text-[clamp(40px,min(5vw,8dvh),64px)]"
+			>
+				{t.hero.greeting}
+			</p>
 			<h1
-				class="m-0 font-display text-[84px] leading-[0.86] font-bold tracking-[-0.05em] text-foreground uppercase md:text-[168px] wide:text-[clamp(72px,10.5vw,168px)]"
+				class="m-0 font-display text-[84px] leading-[0.86] font-bold tracking-[-0.05em] text-foreground uppercase md:text-[168px] wide:text-[clamp(72px,10.5vw,168px)] horizontal:text-[clamp(64px,min(10.5vw,17dvh),168px)]"
 			>
 				Jorge <br />Alvarez
 			</h1>
@@ -38,16 +42,16 @@
 			</div>
 		</div>
 
-		<div class="flex min-w-0 flex-[1_1_320px] flex-col items-center gap-6">
+		<div class="flex min-w-0 flex-[1_1_320px] flex-col items-center gap-6 horizontal:short:gap-3">
 			<PolaroidPhoto
 				src={photo}
 				alt={t.hero.photoAlt}
-				class="wide:[--polaroid-max:clamp(300px,26vw,400px)]"
+				class="wide:[--polaroid-max:clamp(300px,26vw,400px)] horizontal:[--polaroid-max:min(clamp(300px,26vw,400px),calc(50dvh-40px))]"
 			/>
 			<button
 				type="button"
 				onclick={() => nav.next()}
-				class="hidden min-h-11 cursor-pointer items-center gap-3 px-1 py-3 text-[15px] text-muted-foreground transition-opacity hover:opacity-70 md:flex"
+				class="hidden min-h-11 cursor-pointer items-center gap-3 px-1 py-3 text-[15px] text-muted-foreground transition-opacity hover:opacity-70 horizontal:flex"
 			>
 				{t.hero.explore}
 				<svg
