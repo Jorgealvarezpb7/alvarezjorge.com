@@ -45,7 +45,7 @@ const en: Messages = {
 	},
 	projects: {
 		heading: 'Latest projects',
-		viewDetail: 'View details',
+		viewProject: (name: string) => `View ${name} project`,
 		viewOnGitHub: 'View on GitHub'
 	},
 	experience: {

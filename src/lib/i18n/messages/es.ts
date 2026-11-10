@@ -47,7 +47,7 @@ const es = {
 	},
 	projects: {
 		heading: 'Últimos proyectos',
-		viewDetail: 'Ver detalle',
+		viewProject: (name: string) => `Ver proyecto ${name}`,
 		viewOnGitHub: 'Ver en GitHub'
 	},
 	experience: {
