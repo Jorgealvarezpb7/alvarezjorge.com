@@ -43,7 +43,14 @@ const es = {
 		introBefore: 'Soy desarrollador ',
 		introHighlight: 'full stack',
 		introAfter:
-			' y me gusta construir software que la gente entienda a la primera: herramientas que conecten los procesos de una empresa y hagan el día a día más fácil, no más complicado.'
+			' y me gusta construir software que la gente entienda a la primera: herramientas que conecten los procesos de una empresa y hagan el día a día más fácil, no más complicado.',
+		/** Labels for the groups in `src/lib/data/skills.ts`; tech names are not translated. */
+		skillGroups: {
+			languages: 'Lenguajes',
+			frontend: 'Frontend',
+			backend: 'Backend y bases de datos',
+			tools: 'Herramientas y despliegue'
+		}
 	},
 	projects: {
 		heading: 'Últimos proyectos',

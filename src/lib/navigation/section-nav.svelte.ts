@@ -9,15 +9,19 @@ const CONTEXT_KEY = Symbol('section-nav');
 const PROGRAMMATIC_TIMEOUT_MS = 800;
 /** Wheel `deltaMode === 1` reports lines; convert to pixels. */
 const LINE_HEIGHT_PX = 16;
+/** Wait for a resize to settle before measuring whether the panels fit. */
+const FIT_CHECK_DELAY_MS = 150;
 
 type GoToOptions = { instant?: boolean; writeHash?: boolean };
 
 /**
  * Section navigation state shared by the page track, the header and section controls.
  *
- * On `md`+ (>= 768px) the sections are panels on a horizontal track; below that they stack
- * vertically. `attach` wires the listeners for the current mode and is re-run when the
- * breakpoint is crossed.
+ * The layout mode comes from CSS: the `horizontal` variant in `layout.css` (the only place
+ * the size thresholds live) sets `--layout` on <html>, and `watchLayout` mirrors it into
+ * `horizontal`. In horizontal mode the sections are panels on a horizontal track; otherwise
+ * they stack vertically. `attach` wires the listeners for the current mode and is re-run when
+ * the mode changes.
  */
 export class SectionNav {
 	/** Index of the active section in `sections`. */
@@ -27,7 +31,7 @@ export class SectionNav {
 
 	readonly last = sections.length - 1;
 
-	#wide = new MediaQuery('min-width: 768px');
+	#horizontal = $state(typeof document !== 'undefined' && readLayout() === 'horizontal');
 	#reducedMotion = new MediaQuery('prefers-reduced-motion: reduce');
 	#track: HTMLElement | null = null;
 	#attached = false;
@@ -37,11 +41,72 @@ export class SectionNav {
 
 	/** True when sections are laid out on the horizontal track. */
 	get horizontal(): boolean {
-		return this.#wide.current;
+		return this.#horizontal;
 	}
 
 	get activeId(): string {
 		return sections[this.active].id;
+	}
+
+	/**
+	 * Keep `horizontal` in sync with the CSS layout, and fall back to the vertical layout when
+	 * the panels don't fit the track (zoom, long copy, large user fonts): panels never scroll,
+	 * so anything taller would be clipped. The check is debounced after resizes; once it forces
+	 * the vertical layout it keeps it until the viewport size actually changes, so the two
+	 * layouts can't flip back and forth. Call inside an `$effect`.
+	 */
+	watchLayout(track: HTMLElement): () => void {
+		// Reads and writes `horizontal`; untracked so the effect runs once, not on every change.
+		return untrack(() => this.#watchLayout(track));
+	}
+
+	#watchLayout(track: HTMLElement): () => void {
+		const root = document.documentElement;
+		const viewportSize = () => `${window.innerWidth}x${window.innerHeight}`;
+		/** Viewport size at which the vertical layout was forced, `null` when not forced. */
+		let forcedAt: string | null = null;
+		let timer: ReturnType<typeof setTimeout> | undefined;
+		let disposed = false;
+
+		const sync = () => {
+			this.#horizontal = readLayout() === 'horizontal';
+		};
+
+		const check = () => {
+			if (disposed) return;
+			if (forcedAt !== null) {
+				if (forcedAt === viewportSize()) return;
+				// New size: let CSS decide again. Measuring below forces a synchronous layout, so
+				// if it still doesn't fit the attribute is back before the next paint.
+				forcedAt = null;
+				delete root.dataset.layout;
+				sync();
+			}
+			if (this.#horizontal && panelsOverflow(panelsOf(track))) {
+				forcedAt = viewportSize();
+				root.dataset.layout = 'vertical';
+				sync();
+			}
+		};
+
+		const onResize = () => {
+			sync();
+			clearTimeout(timer);
+			timer = setTimeout(check, FIT_CHECK_DELAY_MS);
+		};
+
+		sync();
+		check();
+		// Web fonts change text metrics; measure again once they are in.
+		document.fonts.ready.then(check);
+		window.addEventListener('resize', onResize);
+
+		return () => {
+			disposed = true;
+			clearTimeout(timer);
+			window.removeEventListener('resize', onResize);
+			delete root.dataset.layout;
+		};
 	}
 
 	/**
@@ -114,8 +179,7 @@ export class SectionNav {
 	}
 
 	#panels(): HTMLElement[] {
-		if (!this.#track) return [];
-		return [...this.#track.querySelectorAll<HTMLElement>(':scope > [data-panel]')];
+		return this.#track ? panelsOf(this.#track) : [];
 	}
 
 	#restoreFromHash(initial = false): void {
@@ -176,12 +240,8 @@ export class SectionNav {
 
 		const onWheel = (event: WheelEvent) => {
 			if (event.ctrlKey || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+			// Panels never scroll vertically on the track: vertical wheel moves the track.
 			const delta = event.deltaMode === 1 ? event.deltaY * LINE_HEIGHT_PX : event.deltaY;
-
-			// Let a panel taller than the viewport scroll its own content first.
-			const panel = (event.target as Element | null)?.closest<HTMLElement>('[data-panel]');
-			if (panel && canScrollVertically(panel, delta)) return;
-
 			const max = track.scrollWidth - track.clientWidth;
 			if ((track.scrollLeft <= 0 && delta < 0) || (track.scrollLeft >= max - 1 && delta > 0)) {
 				return;
@@ -246,10 +306,27 @@ function panelScrollLeft(track: HTMLElement, panel: HTMLElement): number {
 	return Math.max(0, Math.min(track.scrollWidth - track.clientWidth, left));
 }
 
-function canScrollVertically(element: HTMLElement, delta: number): boolean {
-	if (element.scrollHeight <= element.clientHeight + 1) return false;
-	if (delta > 0) return element.scrollTop + element.clientHeight < element.scrollHeight - 1;
-	return element.scrollTop > 0;
+function readLayout(): string {
+	return getComputedStyle(document.documentElement).getPropertyValue('--layout').trim();
+}
+
+function panelsOf(track: HTMLElement): HTMLElement[] {
+	return [...track.querySelectorAll<HTMLElement>(':scope > [data-panel]')];
+}
+
+/**
+ * True when any panel's content reaches past its bottom edge. Panels use `overflow-y: clip`,
+ * so the overflow is invisible; compare every descendant's box with the panel's box.
+ */
+function panelsOverflow(panels: HTMLElement[]): boolean {
+	return panels.some((panel) => {
+		const bottom = panel.getBoundingClientRect().bottom + 0.5;
+		if (panel.scrollHeight > panel.clientHeight + 1) return true;
+		for (const element of panel.querySelectorAll('*')) {
+			if (element.getBoundingClientRect().bottom > bottom) return true;
+		}
+		return false;
+	});
 }
 
 function isEditable(target: EventTarget | null): boolean {

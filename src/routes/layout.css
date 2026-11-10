@@ -3,6 +3,25 @@
 @plugin '@tailwindcss/typography';
 
 /*
+ * Home page layout mode. `horizontal:` applies when the sections are panels on the horizontal
+ * track: the viewport is at least 64rem (1024px) wide AND 40rem (640px) tall. This media query is
+ * the ONLY place the thresholds live (raise the height floor here, e.g. to 42.5rem = 680px); the
+ * JS reads the resulting mode from `--layout` below. Anything smaller stacks the sections
+ * vertically with normal page scroll. `SectionNav` sets `data-layout="vertical"` on <html> when
+ * the panels still don't fit (zoom, long copy), which forces the vertical layout too.
+ */
+@custom-variant horizontal {
+	@media (width >= 64rem) and (height >= 40rem) {
+		&:where(:root:not([data-layout='vertical']), :root:not([data-layout='vertical']) *) {
+			@slot;
+		}
+	}
+}
+
+/* Short horizontal screens (laptops with browser toolbars): compact header and spacing. */
+@custom-variant short (@media (height < 47.5rem));
+
+/*
  * Self-hosted fonts (src/lib/fonts). Vite resolves these URLs, hashes the files and copies
  * them into the build, so nothing is requested from a third-party host.
  */
@@ -105,6 +124,23 @@
 	--container-max: 1280px;
 	--container-pad: clamp(24px, 5vw, 64px);
 	--panel-max: calc(var(--container-max) + 2 * var(--container-pad));
+
+	/* Read by SectionNav to know which layout CSS applied; never style with it. */
+	--layout: vertical;
+	/* Vertical padding and gaps of a panel; on the track they shrink with the viewport height. */
+	--panel-py: 64px;
+	--panel-gap: 48px;
+
+	@variant horizontal {
+		--layout: horizontal;
+		--panel-py: clamp(20px, 6dvh, 64px);
+		--panel-gap: clamp(16px, 4.5dvh, 48px);
+
+		/* The home page never scrolls vertically on the track; panels must fit (see `panel`). */
+		&:has([data-track]) {
+			overflow: hidden;
+		}
+	}
 }
 
 /*
@@ -124,16 +160,19 @@
 }
 
 /*
- * A home page section. Stacked (with room for the sticky header) below md; a full-height
- * panel on the horizontal track from md up, scrolling its own content if it overflows.
+ * A home page section. Stacked (with room for the sticky header) in the vertical layout; a
+ * full-height panel on the horizontal track otherwise. On the track a panel never scrolls:
+ * content is sized to fit the height (`--panel-py`, `--panel-gap`, dvh-based font sizes) and
+ * anything that still doesn't fit is clipped, which SectionNav detects to fall back to vertical.
  * Panels are full width until the viewport passes `--panel-max`, then capped at it.
  */
 @utility panel {
 	scroll-margin-top: 4.75rem;
-	@media (width >= 48rem) {
+	@variant horizontal {
+		box-sizing: border-box;
 		flex: 0 0 min(100%, var(--panel-max));
 		height: 100%;
-		overflow-y: auto;
+		overflow-y: clip;
 		scroll-margin-top: 0;
 	}
 }
@@ -156,7 +195,7 @@
  * The horizontal track. Side padding centers the first and last panels once panels are capped.
  */
 @utility panel-track {
-	@media (width >= 48rem) {
+	@variant horizontal {
 		padding-inline: max(0px, calc((100% - var(--panel-max)) / 2));
 	}
 }

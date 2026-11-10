@@ -68,12 +68,15 @@
 	id="experience"
 	data-panel
 	aria-label={t.sections.experience}
-	class="flex panel flex-col justify-center gap-12 p-16 md:w-[max(min(100%,var(--panel-max)),1640px)] md:basis-auto wide:px-(--container-pad)"
+	class="panel flex flex-col justify-center gap-12 p-16 wide:px-(--container-pad) horizontal:w-[max(min(100%,var(--panel-max)),1640px)] horizontal:basis-auto horizontal:gap-(--panel-gap) horizontal:py-(--panel-py)"
 >
 	<SectionHeading index="03" title={t.sections.experience} />
 	<div class="relative">
-		<div aria-hidden="true" class="absolute inset-x-0 top-[7px] hidden h-px bg-line md:block"></div>
-		<ol class="relative m-0 flex list-none flex-col gap-6 p-0 md:flex-row">
+		<div
+			aria-hidden="true"
+			class="absolute inset-x-0 top-[7px] hidden h-px bg-line horizontal:block"
+		></div>
+		<ol class="relative m-0 flex list-none flex-col gap-6 p-0 horizontal:flex-row">
 			{#each entries as entry (entry.title)}
 				<TimelineEntry {...entry} />
 			{/each}

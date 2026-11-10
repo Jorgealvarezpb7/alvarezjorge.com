@@ -41,7 +41,13 @@ const en: Messages = {
 		introBefore: "I'm a ",
 		introHighlight: 'full stack',
 		introAfter:
-			" developer who likes building software people understand at first glance: tools that connect a company's processes and make everyday work easier, not harder."
+			" developer who likes building software people understand at first glance: tools that connect a company's processes and make everyday work easier, not harder.",
+		skillGroups: {
+			languages: 'Languages',
+			frontend: 'Frontend',
+			backend: 'Backend & Databases',
+			tools: 'Tools & Deployment'
+		}
 	},
 	projects: {
 		heading: 'Latest projects',

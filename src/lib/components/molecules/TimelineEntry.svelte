@@ -23,7 +23,7 @@
 	} = $props();
 </script>
 
-<li class="flex min-w-0 flex-col gap-5 md:flex-1 md:basis-0">
+<li class="flex min-w-0 flex-col gap-5 horizontal:flex-1 horizontal:basis-0 horizontal:short:gap-3">
 	<span
 		aria-hidden="true"
 		class="size-[15px] rounded-full border-[3px] border-background outline outline-1 outline-accent {kind ===
@@ -31,7 +31,9 @@
 			? 'bg-accent'
 			: 'bg-background'}"
 	></span>
-	<div class="flex min-h-[340px] flex-col gap-3 rounded-[20px] border border-border bg-surface p-7">
+	<div
+		class="flex min-h-[340px] flex-col gap-3 rounded-[20px] border border-border bg-surface p-7 horizontal:min-h-[min(340px,44dvh)] horizontal:short:p-5"
+	>
 		<span class="text-[13px] tracking-[0.06em] text-muted-foreground uppercase">{period}</span>
 		<h3 class="m-0 font-display text-[28px] leading-[1.1] font-bold tracking-[-0.02em]">
 			{title}
