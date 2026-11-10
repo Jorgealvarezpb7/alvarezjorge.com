@@ -82,8 +82,8 @@ const en: Messages = {
 	formation: {
 		degrees: 'Degrees',
 		readings: 'Reading',
-		webDegree: ['Higher Vocational Degree in', 'Web Application Development'],
-		multiplatformDegree: ['Higher Vocational Degree in', 'Cross-Platform App Development'],
+		webDegree: ['Higher Technician Diploma in', 'Web Application Development'],
+		multiplatformDegree: ['Higher Technician Diploma in', 'Cross-Platform App Development'],
 		headFirstJavaMeta: "3rd edition · Kathy Sierra, Bert Bates and Trisha Gee · O'Reilly"
 	},
 	contact: {
